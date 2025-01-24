@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BackGround_Vignetting_01_0: 7752608579054708800
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

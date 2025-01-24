@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 5b68a461599f675479633fbdc6c00170
+guid: 986583def98329546b9afe311b48f7d6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4141910881899745096
-    second: Card_Mon_Skeleton_Boss_01_0
+      213: -1455357441436887696
+    second: Card_Item_MagicScroll_01_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Card_Mon_Skeleton_Boss_01_0
+      name: Card_Item_MagicScroll_01_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 84f85f690060b7930800000000000000
-      internalID: 4141910881899745096
+      spriteID: 075dee92e188dcbe0800000000000000
+      internalID: -1455357441436887696
       vertices: []
       indices: 
       edges: []

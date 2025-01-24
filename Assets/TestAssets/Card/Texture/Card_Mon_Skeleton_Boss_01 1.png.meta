@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 579dbf82596b43340bd6806f4d5eb027
+guid: 61b3c85a4ec4c5b4bb3b5b49fcac55ee
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7964278451318953438
-    second: Card_Mon_Skeleton_Weak_01_0
+      213: 1829289257968999504
+    second: Card_Mon_Skeleton_Boss_01 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Card_Mon_Skeleton_Weak_01_0
+      name: Card_Mon_Skeleton_Boss_01 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ed51a2f0e0dc68e60800000000000000
-      internalID: 7964278451318953438
+      spriteID: 05c1eac53e0f26910800000000000000
+      internalID: 1829289257968999504
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Card_Mon_Skeleton_Weak_01_0: 7964278451318953438
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 579dbf82596b43340bd6806f4d5eb027
+guid: 289e766b1d8a7194baffea165a9e34fe
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7964278451318953438
-    second: Card_Mon_Skeleton_Weak_01_0
+      213: -1992526831743491757
+    second: Card_Skill_FireBall_01_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Card_Mon_Skeleton_Weak_01_0
+      name: Card_Skill_FireBall_01_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ed51a2f0e0dc68e60800000000000000
-      internalID: 7964278451318953438
+      spriteID: 351ae74476f1954e0800000000000000
+      internalID: -1992526831743491757
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Card_Mon_Skeleton_Weak_01_0: 7964278451318953438
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
