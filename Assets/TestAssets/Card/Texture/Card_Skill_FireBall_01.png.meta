@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Card_Skill_FireBall_01_0: -1992526831743491757
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
