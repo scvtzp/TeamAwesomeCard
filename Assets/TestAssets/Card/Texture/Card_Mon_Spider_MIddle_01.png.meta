@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Card_Mon_Spider_MIddle_01_0: 8173442348275893383
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

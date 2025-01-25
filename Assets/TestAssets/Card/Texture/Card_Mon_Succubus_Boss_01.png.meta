@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Card_Mon_Succubus_Boss_01_0: -6203760564201502233
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

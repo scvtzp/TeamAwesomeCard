@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Card_Mon_WolfMan_MIddle_01_0: 5427423377346425320
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
