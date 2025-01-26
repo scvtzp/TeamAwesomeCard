@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3116e1f870bcca8439d32bcac9eb6828
+guid: 11e8bf0da96f970458156937ba080616
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3433877944539056224
-    second: Card_Mon_PoisonWorm_Middle_01_0
+      213: -3988769855312385993
+    second: Gold_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Card_Mon_PoisonWorm_Middle_01_0
+      name: Gold_0
       rect:
         serializedVersion: 2
-        x: 85
-        y: 0
-        width: 341
-        height: 512
+        x: 0
+        y: 2
+        width: 41
+        height: 41
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0a773b1f33a6850d0800000000000000
-      internalID: -3433877944539056224
+      spriteID: 738a15333fa05a8c0800000000000000
+      internalID: -3988769855312385993
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5b928463550dbf343a9b4df19a04e548
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Card_Mon_PoisonWorm_Middle_01_0: -3433877944539056224
+      Gold_0: -3988769855312385993
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

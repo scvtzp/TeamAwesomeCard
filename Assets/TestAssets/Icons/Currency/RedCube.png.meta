@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3116e1f870bcca8439d32bcac9eb6828
+guid: bba5d872dce5f27468cf1deaf4e691e9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3433877944539056224
-    second: Card_Mon_PoisonWorm_Middle_01_0
+      213: -2326714394958495758
+    second: RedCube_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Card_Mon_PoisonWorm_Middle_01_0
+      name: RedCube_0
       rect:
         serializedVersion: 2
-        x: 85
-        y: 0
-        width: 341
-        height: 512
+        x: 0
+        y: 2
+        width: 39
+        height: 41
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0a773b1f33a6850d0800000000000000
-      internalID: -3433877944539056224
+      spriteID: 2fff5b2d599d5bfd0800000000000000
+      internalID: -2326714394958495758
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5d19c9046f5c9c04ab06beafe7837148
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Card_Mon_PoisonWorm_Middle_01_0: -3433877944539056224
+      RedCube_0: -2326714394958495758
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
