@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BackGround_FairyShelter_01_0: -518152930278066978
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
