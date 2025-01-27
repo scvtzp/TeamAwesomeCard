@@ -1,6 +1,6 @@
 namespace DefaultNamespace
 {
-    public interface IBattleAble
+    public interface ICardPresenter
     {
         public void Death();
         public void SetCardFace(bool isFront = true);

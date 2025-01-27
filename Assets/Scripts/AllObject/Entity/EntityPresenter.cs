@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using AllObject.Entity;
 using Card.Status;
 using Manager;
 using R3;
@@ -6,10 +7,12 @@ using UnityEngine;
 
 namespace DefaultNamespace
 {
-    public class EntityPresenter : IBattleAble
+    public class EntityPresenter : ICardPresenter
     {
         private EntityModel _model;
         private EntityView _view;
+
+        private bool _isFront;
         
         public EntityPresenter(EntityModel model, EntityView view)
         {
@@ -17,7 +20,12 @@ namespace DefaultNamespace
             _view = view;
             _view.Init();
             
-            _view.button?.onClick.AddListener(()=>BattleManager.Instance.Attack(_model));
+            //_viewUI.GetButton()?.onClick.AddListener(()=>BattleManager.Instance.Attack(_model));
+            _view.OnClicked += ()=>
+            {
+                if(_isFront)
+                    BattleManager.Instance.Attack(_model);
+            };
             
             _model.hp.Subscribe(_ => ChangeHp(_model.hp, _model.maxHp));
             _model.maxHp.Subscribe(_ => ChangeHp(_model.hp, _model.maxHp));
@@ -42,6 +50,10 @@ namespace DefaultNamespace
             StageManager.Instance.DeathAction(this);
         }
 
-        public void SetCardFace(bool isFront = true) => _view.SetCardFace(isFront);
+        public void SetCardFace(bool isFront = true)
+        {
+            _view.SetCardFace(isFront);
+            _isFront = isFront;
+        } 
     }
 }
