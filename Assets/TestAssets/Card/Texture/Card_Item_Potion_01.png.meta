@@ -103,12 +103,12 @@ TextureImporter:
       name: Card_Item_Potion_01_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 512
-        height: 512
+        x: 102
+        y: 11
+        width: 309
+        height: 490
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 1d9ecdb527919324e8b610730fd603f0
     internalID: 0
     vertices: []
     indices: 
