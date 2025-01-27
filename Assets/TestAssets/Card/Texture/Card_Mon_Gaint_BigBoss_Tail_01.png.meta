@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Card_Mon_Gaint_BigBoss_Tail_01_0: 2802025540648046138
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

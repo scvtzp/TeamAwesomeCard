@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3116e1f870bcca8439d32bcac9eb6828
+guid: 1011632ef1f8aa64e8f0468d416f1b07
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3433877944539056224
-    second: Card_Mon_PoisonWorm_Middle_01_0
+      213: -4961659706844695122
+    second: BackGround_Dungeon_01_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Card_Mon_PoisonWorm_Middle_01_0
+      name: BackGround_Dungeon_01_0
       rect:
         serializedVersion: 2
-        x: 85
+        x: 0
         y: 0
-        width: 341
-        height: 512
+        width: 1024
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0a773b1f33a6850d0800000000000000
-      internalID: -3433877944539056224
+      spriteID: ea5372dd8c4a42bb0800000000000000
+      internalID: -4961659706844695122
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Card_Mon_PoisonWorm_Middle_01_0: -3433877944539056224
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3116e1f870bcca8439d32bcac9eb6828
+guid: 9439b567c37cdbb4b86e84a95d30a90c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3433877944539056224
-    second: Card_Mon_PoisonWorm_Middle_01_0
+      213: 8309538502148997141
+    second: Card_Mon_SkeletonBabyLord_01_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Card_Mon_PoisonWorm_Middle_01_0
+      name: Card_Mon_SkeletonBabyLord_01_0
       rect:
         serializedVersion: 2
         x: 85
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0a773b1f33a6850d0800000000000000
-      internalID: -3433877944539056224
+      spriteID: 510c50ced39615370800000000000000
+      internalID: 8309538502148997141
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Card_Mon_PoisonWorm_Middle_01_0: -3433877944539056224
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

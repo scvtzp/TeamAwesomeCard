@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BackGround_BigBoss_Giant_01_0: -8877858201323585660
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
