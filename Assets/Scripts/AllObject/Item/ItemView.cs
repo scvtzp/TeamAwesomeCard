@@ -1,3 +1,5 @@
+using DefaultNamespace;
+using Manager;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -5,52 +7,36 @@ using UnityEngine.UI;
 
 namespace AllObject.Item
 {
-    public class ItemView : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
+    public class ItemView : CardAble
     {
+        [SerializeField] private GameObject nameObject;
         [SerializeField] private TextMeshProUGUI itemName;
         [SerializeField] private Image itemImage;
         [SerializeField] private TextMeshProUGUI itemDesc;
+
+        private ItemPresenter _presenter;
         
-        private RectTransform rectTransform;
-        private Canvas canvas;
-        private Vector2 offset;
-        
-        private void Awake()
+        public void Init(ItemPresenter presenter)
         {
-            rectTransform = GetComponent<RectTransform>();
-            canvas = GetComponentInParent<Canvas>();
+            CardType = CardType.Item;
+            _presenter = presenter;
+        }
+        
+        public override void SetCardFace(bool isFront = true)
+        {
+            base.SetCardFace(isFront);
+            nameObject.SetActive(isFront);
         }
 
-        public void OnPointerDown(PointerEventData eventData)
+        public override void OnPointerUp(PointerEventData eventData)
         {
-            // 마우스 클릭 지점과 오브젝트 중심의 오프셋 계산
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(
-                rectTransform, 
-                eventData.position, 
-                eventData.pressEventCamera, 
-                out var localMousePosition);
-
-            offset = rectTransform.anchoredPosition - localMousePosition;
-        }
-
-        public void OnDrag(PointerEventData eventData)
-        {
-            if (RectTransformUtility.ScreenPointToLocalPointInRectangle(
-                    canvas.transform as RectTransform, 
-                    eventData.position, 
-                    eventData.pressEventCamera, 
-                    out var localMousePosition))
+            if (CardType == CardType.Item && TargetCard != null)
             {
-                // 오프셋을 적용하여 정확한 드래그 위치 계산
-                //rectTransform.anchoredPosition = localMousePosition + offset;
+                if (_presenter.UsedCard(TargetCard))
+                    StageManager.Instance.DeathAction(_presenter);
             }
             
-            transform.position = Input.mousePosition;
-        }
-
-        public void OnPointerUp(PointerEventData eventData)
-        {
-            // 드래그 완료 시 필요한 동작을 여기에 추가
+            base.OnPointerUp(eventData);
         }
     }
 }

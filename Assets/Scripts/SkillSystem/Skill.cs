@@ -1,4 +1,5 @@
 using System;
+using AllObject;
 using DefaultNamespace;
 
 namespace SkillSystem
@@ -15,7 +16,7 @@ namespace SkillSystem
         Select = 1<<4, //내가 따로 선택한 단일 개체.
     }
     
-    public abstract class Skill : ICardAble
+    public abstract class Skill
     {
         // 카드 안에 여러 기능 있을때 엮기 위해서 사용. (적에게 피해를 3 주고, 본체에도 피해를 2준다)
         // 해당 부분에서 본체에도 피해 2줄때는 고정 타겟 있어야 해서 ISkill class로 바꾸고 그냥 타겟 같이 넣음.
@@ -36,13 +37,8 @@ namespace SkillSystem
             Target = targetType;
         }
 
-        public abstract void StartSkill(EntityModel target);
+        public abstract void StartSkill(IStat target);
         public abstract Skill Clone();
         public int[] GetValues() => Values;
-        
-        public void SetCardFace(bool isFront = true)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

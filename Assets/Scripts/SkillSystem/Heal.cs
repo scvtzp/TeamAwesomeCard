@@ -13,7 +13,7 @@ namespace SkillSystem
         public Heal(int[] value) : base(value) { }
         public Heal(TargetType targetType, params int[] value) : base(targetType, value) { }
         
-        public override void StartSkill(EntityModel target)
+        public override void StartSkill(IStat target)
         {
             target.ChangeHp(Values[0]);
         }
