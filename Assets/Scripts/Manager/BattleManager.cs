@@ -1,8 +1,9 @@
-using System;
+using System.Collections.Generic;
+using AllObject;
 using AllObject.Entity;
 using DefaultNamespace;
 using Manager.Generics;
-using Unity.Collections.LowLevel.Unsafe;
+using SkillSystem;
 using UnityEngine;
 
 namespace Manager
@@ -32,6 +33,14 @@ namespace Manager
             else
             {
                 attacker.hp.Value -= defender.atk.Value - attacker.def.Value;
+            }
+        }
+
+        public void UsedSkill(List<Skill> skillList, IStat defender)
+        {
+            foreach (var skill in skillList)
+            {
+                skill.StartSkill(defender);
             }
         }
     }

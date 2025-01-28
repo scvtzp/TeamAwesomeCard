@@ -1,7 +1,9 @@
 using System;
+using System.Collections.Generic;
 using Card.Status;
 using Cysharp.Threading.Tasks;
 using DefaultNamespace;
+using SkillSystem;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,8 +15,12 @@ namespace AllObject.Entity
         [SerializeField] private StatusView status;
         [SerializeField] private HpBar hpBar;
         
-        public void Init()
+        private EntityPresenter _presenter;
+        
+        public void Init(EntityPresenter presenter)
         {
+            _presenter = presenter;
+            
             status?.Init();
         }
         
@@ -32,6 +38,11 @@ namespace AllObject.Entity
         {
             if(hpBar != null) 
                 await hpBar.SetHpBar(hp, maxHp);
+        }
+
+        public override bool UsedSkill(List<Skill> skillList)
+        {
+            return _presenter.UsedSkill(skillList);
         }
     }
 }

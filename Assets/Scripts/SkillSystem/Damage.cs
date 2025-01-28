@@ -1,18 +1,17 @@
 using DefaultNamespace;
-using SkillSystem;
 
 namespace SkillSystem
 {
     /// <summary>
     /// Value 0 : 딜량 (음수면 힐됨)
     /// </summary>
-    public class Damage : SkillSystem.Skill
+    public class Damage : Skill
     {
         public Damage() { }
         public Damage(int[] value) : base(value) { }
         public Damage(TargetType targetType, params int[] value) : base(targetType, value) { }
         
-        public override void StartSkill(EntityModel target)
+        public override void StartSkill(IStat target)
         {
             target.ChangeHp(-Values[0]);
         }

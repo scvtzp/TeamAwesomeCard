@@ -9,10 +9,5 @@ namespace DefaultNamespace
         public ReactiveProperty<int> maxHp { get; set; } = new ReactiveProperty<int>(20);
         public ReactiveProperty<int> atk { get; set; } = new ReactiveProperty<int>(5);
         public ReactiveProperty<int> def { get; set; } = new ReactiveProperty<int>(0);
-
-        public void ChangeHp(int value)
-        {
-            
-        }
     }
 }

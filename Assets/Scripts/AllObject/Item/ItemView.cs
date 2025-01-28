@@ -1,3 +1,5 @@
+using DefaultNamespace;
+using Manager;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -7,20 +9,34 @@ namespace AllObject.Item
 {
     public class ItemView : CardAble
     {
+        [SerializeField] private GameObject nameObject;
         [SerializeField] private TextMeshProUGUI itemName;
         [SerializeField] private Image itemImage;
         [SerializeField] private TextMeshProUGUI itemDesc;
-        
-        private RectTransform rectTransform;
-        
-        private void Awake()
-        {
-            rectTransform = GetComponent<RectTransform>();
-        }
 
+        private ItemPresenter _presenter;
+        
+        public void Init(ItemPresenter presenter)
+        {
+            CardType = CardType.Item;
+            _presenter = presenter;
+        }
+        
         public override void SetCardFace(bool isFront = true)
         {
+            base.SetCardFace(isFront);
+            nameObject.SetActive(isFront);
+        }
+
+        public override void OnPointerUp(PointerEventData eventData)
+        {
+            if (CardType == CardType.Item && TargetCard != null)
+            {
+                if (_presenter.UsedCard(TargetCard))
+                    StageManager.Instance.DeathAction(_presenter);
+            }
             
+            base.OnPointerUp(eventData);
         }
     }
 }

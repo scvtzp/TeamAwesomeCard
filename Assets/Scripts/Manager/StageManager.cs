@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using AllObject;
 using AllObject.Entity;
+using AllObject.Item;
 using DefaultNamespace;
 using Manager.Generics;
 using UnityEngine;
@@ -14,7 +15,10 @@ namespace Manager
     /// </summary>
     public class StageManager : MonoSingleton<StageManager>
     {
+        public Transform dragParents;
         [SerializeField] EntityView entityViewPrefab;
+        [SerializeField] ItemView ItemViewPrefab;
+        
         [SerializeField] List<Transform> cardListParents;
 
         public List<List<ICardPresenter>> cardPresenterList { get; private set; }
@@ -50,17 +54,29 @@ namespace Manager
             {
                 for (int j = 0; j < Random.Range(1, 5); j++)
                 {
-                    var model = new EntityModel();
-                    model.maxHp.Value = Random.Range(1, 16);
-                    model.hp.Value = model.maxHp.Value;
-                    model.atk.Value = Random.Range(3, 6);
-                    model.def.Value = Random.Range(0, 3);
-                    
-                    var view = Instantiate(entityViewPrefab, cardListParents[i]);
-                    var presenter = new EntityPresenter(model, view);
-                    
-                    cardList[i].Add(view);
-                    cardPresenterList[i].Add(presenter);
+                    if(Random.Range(1, 3) != 2)
+                    {
+                        var model = new EntityModel();
+                        model.maxHp.Value = Random.Range(1, 16);
+                        model.hp.Value = model.maxHp.Value;
+                        model.atk.Value = Random.Range(3, 6);
+                        model.def.Value = Random.Range(0, 3);
+                        
+                        var view = Instantiate(entityViewPrefab, cardListParents[i]);
+                        var presenter = new EntityPresenter(model, view);
+                        
+                        cardList[i].Add(view);
+                        cardPresenterList[i].Add(presenter);
+                    }
+                    else
+                    {
+                        var model = new ItemModel();
+                        var view = Instantiate(ItemViewPrefab, cardListParents[i]);
+                        var presenter = new ItemPresenter(model, view);
+                        
+                        cardList[i].Add(view);
+                        cardPresenterList[i].Add(presenter);
+                    }
                 }
             }
 
@@ -86,7 +102,7 @@ namespace Manager
                 for (int i = cardList[index].Count - 1; i >= 0; i--)
                 {
                     var pos = (i - (cardList[index].Count - 1)) * -30f;
-                    cardList[index][i].SetPos(new Vector3(0, pos, 0));
+                    cardList[index][i].SetPos(new Vector3(0, pos, 0), cardListParents[index]);
                 }
             }
         }
@@ -104,6 +120,8 @@ namespace Manager
 
         public void DeathAction(ICardPresenter presenter)
         {
+            presenter.Death();
+            
             foreach (var subList in cardPresenterList)
             {
                 if (subList.Remove(presenter))

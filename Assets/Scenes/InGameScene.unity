@@ -2251,7 +2251,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 513f80e249624b66a0c7f703e8d58ff1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dragParents: {fileID: 1793817540}
   entityViewPrefab: {fileID: 2065192004553136475, guid: 65f9e6826548f1d478911093ede42058, type: 3}
+  ItemViewPrefab: {fileID: 738723568602383267, guid: fc04c2fe32f6e654fa2274aa88dcb835, type: 3}
   cardListParents:
   - {fileID: 610684107}
   - {fileID: 1740987631}
@@ -4005,6 +4007,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1260681889}
+  - {fileID: 1793817540}
   - {fileID: 2059214505}
   - {fileID: 679101134}
   - {fileID: 209496525}
@@ -4020,6 +4023,41 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1793817539
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1793817540}
+  m_Layer: 5
+  m_Name: DragParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1793817540
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793817539}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1742376914}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1870817503
 GameObject:
   m_ObjectHideFlags: 0
