@@ -1,8 +1,10 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using AllObject.Entity;
 using Card.Status;
 using Manager;
 using R3;
+using SkillSystem;
 using UnityEngine;
 
 namespace DefaultNamespace
@@ -18,9 +20,8 @@ namespace DefaultNamespace
         {
             _model = model;
             _view = view;
-            _view.Init();
+            _view.Init(this);
             
-            //_viewUI.GetButton()?.onClick.AddListener(()=>BattleManager.Instance.Attack(_model));
             _view.OnClicked += ()=>
             {
                 if(_isFront)
@@ -41,19 +42,24 @@ namespace DefaultNamespace
             await _view.SetHpBar(hp.Value, maxHp.Value);
             
             if (hp.Value <= 0) //죽음 판정 여기서 하는게 과연 맞는가?
-                Death();
+                StageManager.Instance.DeathAction(this);
         }
         
         public void Death()
         {
             Object.Destroy(_view.gameObject);
-            StageManager.Instance.DeathAction(this);
         }
 
         public void SetCardFace(bool isFront = true)
         {
             _view.SetCardFace(isFront);
             _isFront = isFront;
-        } 
+        }
+
+        public bool UsedSkill(List<Skill> skillList)
+        {
+            BattleManager.Instance.UsedSkill(skillList, _model);
+            return true;
+        }
     }
 }

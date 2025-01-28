@@ -320,7 +320,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6128527511056561538
 RectTransform:
   m_ObjectHideFlags: 0
@@ -943,6 +943,7 @@ MonoBehaviour:
   backObject: {fileID: 6569529533217551269}
   selectImage: {fileID: 4551777477362850621}
   collider: {fileID: 3673469937659106993}
+  nameObject: {fileID: 413673881762491097}
   itemName: {fileID: 3022620939759833378}
   itemImage: {fileID: 4017480009980466484}
   itemDesc: {fileID: 68464472707981407}
