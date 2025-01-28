@@ -1,4 +1,5 @@
 using System;
+using AllObject.Entity;
 using DefaultNamespace;
 using Manager.Generics;
 using Unity.Collections.LowLevel.Unsafe;

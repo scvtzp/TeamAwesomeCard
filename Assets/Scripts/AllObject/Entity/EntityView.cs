@@ -1,44 +1,37 @@
+using System;
 using Card.Status;
 using Cysharp.Threading.Tasks;
 using DefaultNamespace;
-using Manager;
-using R3;
-using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EntityView : MonoBehaviour, ICardAble
+namespace AllObject.Entity
 {
-    public Button button;
-    
-    [SerializeField] private Image entityImage;
-    [SerializeField] private HpBar hpBar;
-    [SerializeField] private GameObject backObject;
-    [SerializeField] private StatusView status;
-
-    public void Init()
+    public class EntityView : CardAble
     {
-        status?.Init();
-
-        UpdateData();
-    }
-    
-    private void UpdateData()
-    {
+        [SerializeField] private Image entityImage;
+        [SerializeField] private StatusView status;
+        [SerializeField] private HpBar hpBar;
         
-    }
-
-    public void SetCardFace(bool isFront = true)
-    {
-        if(backObject != null)
-            backObject.SetActive(!isFront);
-    }
-
-    public void SetStatus(StatusType type, int value) => status?.SetStatus(type, value);
-    
-    public async UniTask SetHpBar(int hp, int maxHp)
-    {
-        if(hpBar != null) 
-            await hpBar.SetHpBar(hp, maxHp);
+        public void Init()
+        {
+            status?.Init();
+        }
+        
+        public override void SetCardFace(bool isFront = true)
+        {
+            base.SetCardFace(isFront);
+            
+            status?.gameObject.SetActive(isFront); //그냥 캔버스를 끄자.
+            hpBar?.gameObject.SetActive(isFront);
+        }
+        
+        public void SetStatus(StatusType type, int value) => status?.SetStatus(type, value);
+        
+        public async UniTask SetHpBar(int hp, int maxHp)
+        {
+            if(hpBar != null) 
+                await hpBar.SetHpBar(hp, maxHp);
+        }
     }
 }
