@@ -1,13 +1,13 @@
-SkillID,SGroupID,ParentYN,SkillName,SkillType,Trigger,TriggerValue,AffectType,TrunDuration,Cost,CooldownTrun,AttackType,MaxOrbSlot,TargetType,MaxTarget,ImmuneTarget,Effect1_Type,Effect1_Value,Effect1_AddTrriger,Effect1_AddTriggerValue,Effect2_Type,Effect2_Value,Effect2_AddTrriger,Effect2_AddTriggerValue,Effect3_Type,Effect3_Value,Effect3_AddTrriger,Effect3_AddTriggerValue
-00001,0001,1,역병의 이빨(유물 효과),Buff,Passive,null,Infinity,-3,0,0,None,-1,player,1,None,Buff,00001,null,null,null,null,null,null,null,null,null,null
-00002,0001,0,역병의 이빨(자식),MesDebuff,ChanceOnAttack,25,Instant,3,0,0,None,-1,EnermyAll,-1,Boss,ChanceOnAttackPerMesCount,25,isTargetMes,Poison_Venom_Bleed_CutWound,Mes,Infection,IsPlayerBuff00001,1,null,null,null,null
-00003,0001,0,역병의 이빨(자식),MesDebuff,ChanceOnAttack,5,Instant,3,0,0,None,-1,EnemyBoss,-1,None,ChanceOnAttackPerMesCount,5,isTargetMes,Poison_Venom_Bleed_CutWound,Mes,Infection,IsPlayerBuff00001,1,null,null,null,null
+SkillID,SGroupID,ParentYN,SkillName,SkillType,Trigger,TriggerValue,AffectType,TrunDuration,Cost,Cooldown,AttackType,MaxOrbSlot,TargetType,MaxTarget,ImmuneTarget,Effect1_Type,Effect1_Value,Effect1_AddTrriger,Effect1_AddTriggerValue,Effect2_Type,Effect2_Value,Effect2_AddTrriger,Effect2_AddTriggerValue,Effect3_Type,Effect3_Value,Effect3_AddTrriger,Effect3_AddTriggerValue
+00001,0001,1,역병의 이빨(유물 효과),Buff,Passive,null,Infinity,-3,0,0,None,-1,Player,1,None,null,null,null,null,null,null,null,null,null,null,null,null
+00002,0001,0,역병의 이빨(자식),MesDebuff,ChanceOnAttack,25,Instant,3,0,0,None,-1,EnermyAll,-1,Boss,ChanceOnAttackPerMesCount,25,isTargetMes,Poison_Venom_Bleed_CutWound,Mes,Infection,IsTargetBuff,00001,null,null,null,null
+00003,0001,0,역병의 이빨(자식),MesDebuff,ChanceOnAttack,5,Instant,3,0,0,None,-1,EnemyBoss,-1,None,ChanceOnAttackPerMesCount,5,isTargetMes,Poison_Venom_Bleed_CutWound,Mes,Infection,IsTargetBuff,00001,null,null,null,null
 10000,1000,1,기본공격(평타),Dam,Attack,null,Instant,0,0,0,Melee,-1,EnermySingle,1,None,DambyPdam,Pdam*1,null,1,ReduceCooldownOnAttack,1,null,null,null,null,null,null
-10010,1001,1,완벽한 급습,Buff,EnterStage,null,Stage,-1,0,-1,NoCounter,4,player,1,None,Buff,Hide10010,null,null,null,null,null,null,null,null,null,null
-10011,1001,0,완벽한 급습(자식),Dam,Attack,null,Instant,0,0,-1,NoCounter,4,EnermyNeighbor,3,None,DambyPdam,Pdam*1,IsPlayerBuff10010,1,AlwaysHitandCri,True,IsPlayerBuff10010,1,CriDam,250,IsPlayerBuff10010,1
-10012,1001,0,완벽한 급습(자식),MesDebuff,Attack,null,Turn,3,0,-1,NoCounter,4,EnermyNeighbor,3,None,Mes,Vulnerable,IsPlayerBuff10010,1,EraseBuff,10010,IsPlayerBuff10010,1,null,null,null,null
+10010,1001,1,완벽한 급습,Buff,EnterStage,null,Stage,1,0,-1,NoCounter,4,Player,1,None,Buff,Hide,OncePerStage,1,null,null,null,null,null,null,null,null
+10011,1001,0,완벽한 급습(자식),Buff,EnterStage,null,Stage,1,0,-1,NoCounter,4,Player,1,None,NextSkillTargetTypeChange,EnermyNeighbor,IsTargetBuff,10010,AlwaysHitandCri,1,IsTargetBuff,10010,CriDam,250,IsTargetBuff,10010
+10012,1001,0,완벽한 급습(자식),MesDebuff,Attack,null,Turn,3,0,-1,NoCounter,4,EnermyNeighbor,3,None,Mes,Vulnerable,IsTargetBuff,10010,null,null,null,null,null,null,null,null
 10020,1002,1,팬텀 대거,Dam,Attack,null,Instant,0,0,8,Range,4,EnermyAll,1,None,DambyPdam,Pdam*0.8,null,null,ReduceCooldownROnKill,50,null,null,null,null,null,null
-10030,1003,1,베놈 어택,Dam,Attack,null,Instant,0,1,7,Melee,4,EnermySingle,1,None,Dam,Dam*1.25,isTargetMes,Vulnerable,DambyPdam,Pdam*1.5+4,null,null,null,null,null,null
-10031,1003,0,베놈 어택(자식),MesDebuff,Attack,null,Turn,3,1,7,NoCounter,4,EnermySingle,1,None,AddTurnDuration,1,isTargetMes,Vulnerable,Mes,Poison,null,null,null,null,null,null
+10030,1003,1,베놈 어택,Dam,Attack,null,Instant,0,1,7,Melee,4,EnermySingle,1,None,Dam,Dam*1.25,IsTargetMes,Vulnerable,DambyPdam,Pdam*1.5+4,null,null,null,null,null,null
+10031,1003,0,베놈 어택(자식),MesDebuff,Attack,null,Turn,3,1,7,NoCounter,4,EnermySingle,1,None,AddTurnDuration,1,IsTargetMes,Vulnerable,Mes,Poison,null,null,null,null,null,null
 10040,1004,1,보이드 애로우,Dam,Attack,null,Instant,0,2,12,Range,4,EnermyNeighbor,3,None,DambyPdam,Pdam*1.5+5,IsTargetShield,ignoreShield,DambyMdam,Mdam*1.5+5,null,null,ignoreShield,1,IsTargetShield,1
 
