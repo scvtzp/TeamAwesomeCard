@@ -9,9 +9,10 @@ namespace AllObject.Item
 {
     public class ItemView : CardAble
     {
-        [SerializeField] private GameObject nameObject;
         [SerializeField] private TextMeshProUGUI itemName;
         [SerializeField] private Image itemImage;
+        
+        [SerializeField] private GameObject nameObject;
         [SerializeField] private TextMeshProUGUI itemDesc;
 
         private ItemPresenter _presenter;
@@ -37,6 +38,12 @@ namespace AllObject.Item
             }
             
             base.OnPointerUp(eventData);
+        }
+        
+        public override void UpdateData(string id)
+        {
+            itemImage.sprite = SpriteManager.Instance.GetSprite(id);
+            itemName.SetText(id);
         }
     }
 }

@@ -24,8 +24,9 @@ namespace Manager
         public List<List<ICardPresenter>> cardPresenterList { get; private set; }
         public List<List<CardAble>> cardList { get; private set; }
 
-        private void Start()
+        private async void Start()
         {
+            await SpriteManager.Instance.LoadMainSceneAssets();
             SetStage();
         }
 
@@ -56,12 +57,7 @@ namespace Manager
                 {
                     if(Random.Range(1, 3) != 2)
                     {
-                        var model = new EntityModel();
-                        model.maxHp.Value = Random.Range(1, 16);
-                        model.hp.Value = model.maxHp.Value;
-                        model.atk.Value = Random.Range(3, 6);
-                        model.def.Value = Random.Range(0, 3);
-                        
+                        var model = new EntityModel(DataSettingManager.Instance.EntityData.GetRandomValue());
                         var view = Instantiate(entityViewPrefab, cardListParents[i]);
                         var presenter = new EntityPresenter(model, view);
                         

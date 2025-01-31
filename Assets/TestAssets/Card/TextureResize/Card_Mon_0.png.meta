@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f943176b29c39a64ebac7e400ec43466
+guid: cdb221cc3961c8b4a85be8d23e10a62c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1118386717474841694
-    second: Card_Mon_Golem_Weak_01_R_0
+      213: 8294520619028757965
+    second: Card_Mon_Skeleton_Weak_01_R_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,11 +96,24 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Card_Mon_Golem_Weak_01_R_0
+      name: Card_Mon_0
       rect:
         serializedVersion: 2
         x: 0
@@ -108,15 +121,15 @@ TextureImporter:
         width: 200
         height: 300
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e546a984bce458f00800000000000000
-      internalID: 1118386717474841694
+      spriteID: dcdbc578e8e0c1370800000000000000
+      internalID: 8294520619028757965
       vertices: []
       indices: 
       edges: []
@@ -125,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5a694bad941db7549a4e75a1b9dd399d
     internalID: 0
     vertices: []
     indices: 
@@ -134,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Card_Mon_0: 8294520619028757965
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

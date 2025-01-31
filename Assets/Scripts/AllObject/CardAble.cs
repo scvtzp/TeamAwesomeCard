@@ -19,7 +19,7 @@ namespace AllObject
     /// <summary>
     /// 카드라면 가능한 기본적인 이동사항들.
     /// </summary>
-    public class CardAble : MonoBehaviour, IPointerClickHandler, IPointerDownHandler, IPointerUpHandler, IDragHandler
+    public abstract class CardAble : MonoBehaviour, IPointerClickHandler, IPointerDownHandler, IPointerUpHandler, IDragHandler
     {
         [SerializeField] private GameObject backObject;
         [SerializeField] private Image selectImage;
@@ -52,7 +52,7 @@ namespace AllObject
 
         public virtual void SetSelect(bool isSelected = true)
         {
-            selectImage.gameObject.SetActive(isSelected);
+            selectImage?.gameObject.SetActive(isSelected);
         }
 
         public void SetPos(Vector3 position, Transform parent)
@@ -138,5 +138,7 @@ namespace AllObject
             Debug.Log("스킬이 사용되지 않았습니다 " + gameObject.name);
             return false;
         }
+
+        public abstract void UpdateData(string id);
     }
 }

@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using Card.Status;
 using Cysharp.Threading.Tasks;
 using DefaultNamespace;
+using Manager;
 using SkillSystem;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,16 +13,18 @@ namespace AllObject.Entity
 {
     public class EntityView : CardAble
     {
+        [SerializeField] private TextMeshProUGUI entityName;
         [SerializeField] private Image entityImage;
+        
         [SerializeField] private StatusView status;
         [SerializeField] private HpBar hpBar;
         
         private EntityPresenter _presenter;
         
-        public void Init(EntityPresenter presenter)
+        public void Init(EntityPresenter presenter, string id)
         {
             _presenter = presenter;
-            
+            UpdateData(id);
             status?.Init();
         }
         
@@ -43,6 +47,13 @@ namespace AllObject.Entity
         public override bool UsedSkill(List<Skill> skillList)
         {
             return _presenter.UsedSkill(skillList);
+        }
+
+        public override void UpdateData(string id)
+        {
+            if(entityImage != null)
+                entityImage.sprite = SpriteManager.Instance.GetSprite($"Card_{id}");
+            entityName?.SetText(id);
         }
     }
 }

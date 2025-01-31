@@ -1,6 +1,6 @@
 using R3;
 
-namespace DefaultNamespace
+namespace AllObject
 {
     public interface IStat
     {

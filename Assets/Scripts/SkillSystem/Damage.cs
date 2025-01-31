@@ -1,3 +1,4 @@
+using AllObject;
 using DefaultNamespace;
 
 namespace SkillSystem

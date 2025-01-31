@@ -3,7 +3,7 @@ using SkillSystem;
 
 namespace AllObject.Item
 {
-    public class ItemModel
+    public class ItemModel : IHasID
     {
         public List<Skill> SkillList = new List<Skill>();
 
@@ -12,5 +12,7 @@ namespace AllObject.Item
         {
             SkillList.Add(new Damage(new int[] {6}));
         }
+
+        public string id { get; set; }
     }
 }

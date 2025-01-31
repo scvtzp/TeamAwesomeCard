@@ -20,7 +20,7 @@ namespace DefaultNamespace
         {
             _model = model;
             _view = view;
-            _view.Init(this);
+            _view.Init(this, model.id);
             
             _view.OnClicked += ()=>
             {
