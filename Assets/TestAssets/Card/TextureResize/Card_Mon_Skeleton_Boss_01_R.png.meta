@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Card_Mon_Skeleton_Boss_01_R_0: 2218166902803524400
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

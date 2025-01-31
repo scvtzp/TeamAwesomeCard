@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Card_Mon_PoisonWorm_Middle_01_R_0: 5360578409536783730
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

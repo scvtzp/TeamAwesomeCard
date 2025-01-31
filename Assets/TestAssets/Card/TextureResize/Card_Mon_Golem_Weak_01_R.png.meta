@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Card_Mon_Golem_Weak_01_R_0: 1118386717474841694
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Card_Mon_SkeletonBabyKnight_01_R_0: 695517232719558863
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

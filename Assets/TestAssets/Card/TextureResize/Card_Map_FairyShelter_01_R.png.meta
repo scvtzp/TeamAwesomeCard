@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Card_Map_FairyShelter_01_R_0: -6595542920142015288
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

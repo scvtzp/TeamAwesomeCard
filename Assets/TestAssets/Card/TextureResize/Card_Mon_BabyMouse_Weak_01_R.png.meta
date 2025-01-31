@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Card_Mon_BabyMouse_Weak_01_R_0: -2734471886340951541
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

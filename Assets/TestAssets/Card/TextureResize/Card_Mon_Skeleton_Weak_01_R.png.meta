@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Card_Mon_Skeleton_Weak_01_R_0: 8294520619028757965
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
