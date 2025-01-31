@@ -93,6 +93,7 @@ namespace AllObject
         {
             TargetCard?.SetSelect(false);
             _targetCollider = null;
+            TargetCard = null;
         }
         
         public void OnDrag(PointerEventData eventData)
