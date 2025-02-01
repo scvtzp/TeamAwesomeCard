@@ -7,13 +7,12 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: VFX_Mat_Base_Pat_02
+  m_Name: VFX_Mat_Wind_01
   m_Shader: {fileID: 4800000, guid: a36b7719ff0465b42ab1407d67672c5f, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - GLOWTEX_ON
-  - GLOW_ON
   - INNEROUTLINE_ON
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -59,7 +58,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: c3e408994a4fb8d438a7643ca0c70b05, type: 3}
+        m_Texture: {fileID: 2800000, guid: e9d4613f6cf178d44ac3555656dd3a78, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskTex:
@@ -136,8 +135,8 @@ Material:
     - _GhostTransparency: 0
     - _GlitchAmount: 3
     - _GlitchSize: 1
-    - _Glow: 20.5
-    - _GlowGlobal: 27.4
+    - _Glow: 6.8
+    - _GlowGlobal: 21
     - _GradBlend: 1
     - _GradBoostX: 1.2
     - _GradBoostY: 1.2
@@ -163,9 +162,9 @@ Material:
     - _HsvBright: 1
     - _HsvSaturation: 1
     - _HsvShift: 180
-    - _InnerOutlineAlpha: 0.03
-    - _InnerOutlineGlow: 88
-    - _InnerOutlineThickness: 1.51
+    - _InnerOutlineAlpha: 0.104
+    - _InnerOutlineGlow: 9
+    - _InnerOutlineThickness: 0
     - _MaxXUV: 1
     - _MaxYUV: 1
     - _MinXUV: 0
@@ -245,7 +244,7 @@ Material:
     - _ColorSwapGreen: {r: 1, g: 1, b: 1, a: 1}
     - _ColorSwapRed: {r: 1, g: 1, b: 1, a: 1}
     - _FadeBurnColor: {r: 1, g: 1, b: 0, a: 1}
-    - _GlowColor: {r: 0.9811321, g: 0.15015674, b: 0, a: 1}
+    - _GlowColor: {r: 0.9276729, g: 0.97759277, b: 1, a: 1}
     - _GradBotLeftCol: {r: 0, g: 0, b: 1, a: 1}
     - _GradBotRightCol: {r: 0, g: 1, b: 0, a: 1}
     - _GradTopLeftCol: {r: 1, g: 0, b: 0, a: 1}
@@ -253,7 +252,7 @@ Material:
     - _GreyscaleTintColor: {r: 1, g: 1, b: 1, a: 1}
     - _HitEffectColor: {r: 1, g: 1, b: 1, a: 1}
     - _HologramStripeColor: {r: 0, g: 1, b: 1, a: 1}
-    - _InnerOutlineColor: {r: 0.7735849, g: 0.12933202, b: 0, a: 1}
+    - _InnerOutlineColor: {r: 1, g: 1, b: 1, a: 1}
     - _OutlineColor: {r: 1, g: 1, b: 1, a: 1}
     - _OverlayColor: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
