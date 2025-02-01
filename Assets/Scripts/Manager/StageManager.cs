@@ -20,9 +20,7 @@ namespace Manager
         [SerializeField] ItemView ItemViewPrefab;
         
         [SerializeField] List<Transform> cardListParents;
-
-        public List<List<ICardPresenter>> cardPresenterList { get; private set; }
-        public List<List<CardAble>> cardList { get; private set; }
+        public List<List<(CardAble, ICardPresenter)>> cardList_1 { get; private set; }
 
         private async void Start()
         {
@@ -42,27 +40,24 @@ namespace Manager
             }
             
             // 초기화
-            cardPresenterList = new List<List<ICardPresenter>>();
-            cardList = new List<List<CardAble>>();
+            cardList_1 = new List<List<(CardAble, ICardPresenter)>>();
             for (int i = 0; i < 5; i++)
             {
-                cardPresenterList.Add(new List<ICardPresenter>());
-                cardList.Add(new List<CardAble>());
+                cardList_1.Add(new List<(CardAble, ICardPresenter)>());
             }
             
             // 라인별로 무작위 갯수만큼 카드 생성.
-            for (int i = 0; i < cardPresenterList.Count; i++)
+            for (int i = 0; i < cardList_1.Count; i++)
             {
                 for (int j = 0; j < Random.Range(1, 5); j++)
                 {
-                    if(Random.Range(1, 3) != 2)
+                    if(Random.Range(1, 4) != 2)
                     {
                         var model = new EntityModel(DataSettingManager.Instance.EntityData.GetRandomValue());
                         var view = Instantiate(entityViewPrefab, cardListParents[i]);
                         var presenter = new EntityPresenter(model, view);
                         
-                        cardList[i].Add(view);
-                        cardPresenterList[i].Add(presenter);
+                        cardList_1[i].Add((view, presenter));
                     }
                     else
                     {
@@ -70,8 +65,7 @@ namespace Manager
                         var view = Instantiate(ItemViewPrefab, cardListParents[i]);
                         var presenter = new ItemPresenter(model, view);
                         
-                        cardList[i].Add(view);
-                        cardPresenterList[i].Add(presenter);
+                        cardList_1[i].Add((view, presenter));
                     }
                 }
             }
@@ -83,9 +77,9 @@ namespace Manager
 
         private void CloseAllCard()
         {
-            foreach (var list in cardPresenterList)
+            foreach (var list in cardList_1)
                 foreach (var card in list)
-                    card.SetCardFace(false);
+                    card.Item2.SetCardFace(false);
         }
 
         /// <summary>
@@ -93,12 +87,12 @@ namespace Manager
         /// </summary>
         private void SortCardPos()
         {
-            for (var index = 0; index < cardList.Count; index++)
+            for (var index = 0; index < cardList_1.Count; index++)
             {
-                for (int i = cardList[index].Count - 1; i >= 0; i--)
+                for (int i = cardList_1[index].Count - 1; i >= 0; i--)
                 {
-                    var pos = (i - (cardList[index].Count - 1)) * -30f;
-                    cardList[index][i].SetPos(new Vector3(0, pos, 0), cardListParents[index]);
+                    var pos = (i - (cardList_1[index].Count - 1)) * -30f;
+                    cardList_1[index][i].Item1.SetPos(new Vector3(0, pos, 0), cardListParents[index]);
                 }
             }
         }
@@ -107,10 +101,10 @@ namespace Manager
         private void OpenLastCard()
         {
             //맨 앞 카드 뒤집어줌
-            for (int i = 0; i < cardPresenterList.Count; i++)
+            for (int i = 0; i < cardList_1.Count; i++)
             {
-                if(cardPresenterList[i].Count > 0)
-                    cardPresenterList[i][^1].SetCardFace(true);
+                if(cardList_1[i].Count > 0)
+                    cardList_1[i][^1].Item2.SetCardFace(true);
             }
         }
 
@@ -118,14 +112,43 @@ namespace Manager
         {
             presenter.Death();
             
-            foreach (var subList in cardPresenterList)
+            foreach (var subList in cardList_1)
             {
-                if (subList.Remove(presenter))
-                    break;
+                for (var index = 0; index < subList.Count; index++)
+                {
+                    var tuple = subList[index];
+                    if (tuple.Item2 == presenter)
+                    {
+                        if (subList.Remove(tuple))
+                            break;
+                    }
+                }
             }
 
             //테스트용. 원래는 이동 카드 먹어야 이동함.
-            if (cardPresenterList.All(subList => subList.Count == 0))
+            if (cardList_1.All(subList => subList.Count == 0))
+                SetStage();
+
+            OpenLastCard();
+        }
+
+        public void KeepCard(CardAble card)
+        {
+            foreach (var subList in cardList_1)
+            {
+                for (var index = 0; index < subList.Count; index++)
+                {
+                    var tuple = subList[index];
+                    if (tuple.Item1 == card)
+                    {
+                        if (subList.Remove(tuple))
+                            break;
+                    }
+                }
+            }
+
+            //테스트용. 원래는 이동 카드 먹어야 이동함.
+            if (cardList_1.All(subList => subList.Count == 0))
                 SetStage();
 
             OpenLastCard();

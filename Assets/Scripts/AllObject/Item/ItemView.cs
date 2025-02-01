@@ -31,10 +31,20 @@ namespace AllObject.Item
 
         public override void OnPointerUp(PointerEventData eventData)
         {
+            if (TargetSlot != null && TargetCard != null)
+            {
+                Debug.Log("중복타겟 버그");
+                return;
+            }
+            
             if (CardType == CardType.Item && TargetCard != null)
             {
                 if (_presenter.UsedCard(TargetCard))
                     StageManager.Instance.DeathAction(_presenter);
+            }
+            else if (CardType == CardType.Item && TargetSlot != null)
+            {
+                KeepCard(TargetSlot);
             }
             
             base.OnPointerUp(eventData);

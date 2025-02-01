@@ -165,6 +165,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -709,7 +722,31 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      VFX_TX_Explosion_Sprit_01_0: 6351287107371381988
+      VFX_TX_Explosion_Sprit_01_1: 5691790732631115750
+      VFX_TX_Explosion_Sprit_01_10: 1218685495204210336
+      VFX_TX_Explosion_Sprit_01_11: -3070556180323665099
+      VFX_TX_Explosion_Sprit_01_12: 6879781747553984751
+      VFX_TX_Explosion_Sprit_01_13: -8803730878643247722
+      VFX_TX_Explosion_Sprit_01_14: 8987390209214842403
+      VFX_TX_Explosion_Sprit_01_15: 1863313703059365633
+      VFX_TX_Explosion_Sprit_01_16: -8887103421522183269
+      VFX_TX_Explosion_Sprit_01_17: 3933188459743655666
+      VFX_TX_Explosion_Sprit_01_18: 7067798745034809886
+      VFX_TX_Explosion_Sprit_01_19: -4566066745329702203
+      VFX_TX_Explosion_Sprit_01_2: -9205356836953783183
+      VFX_TX_Explosion_Sprit_01_20: -927184090852010963
+      VFX_TX_Explosion_Sprit_01_21: -3902374630068056860
+      VFX_TX_Explosion_Sprit_01_22: -4773953566582373842
+      VFX_TX_Explosion_Sprit_01_23: -6391027900138905975
+      VFX_TX_Explosion_Sprit_01_3: 7970843009048449988
+      VFX_TX_Explosion_Sprit_01_4: 205610978888969069
+      VFX_TX_Explosion_Sprit_01_5: 6188676928703038570
+      VFX_TX_Explosion_Sprit_01_6: -3206305051724608257
+      VFX_TX_Explosion_Sprit_01_7: -3949994615168379580
+      VFX_TX_Explosion_Sprit_01_8: -6023125011586461086
+      VFX_TX_Explosion_Sprit_01_9: 6272143370138132363
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

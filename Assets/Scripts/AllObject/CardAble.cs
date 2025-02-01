@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using DefaultNamespace;
 using Manager;
 using SkillSystem;
 using UnityEngine;
@@ -27,6 +26,7 @@ namespace AllObject
         
         protected CardType CardType = CardType.Monster;
         protected CardAble TargetCard;
+        protected CardSlot TargetSlot;
         protected bool IsFront = false;
         protected bool IsDrag = false;
         
@@ -68,16 +68,29 @@ namespace AllObject
             {
                 if (other.CompareTag("Card"))
                 {
-                    //이미 선택된 카드 있다면 그 카드의 셀렉은 품.
-                    TargetCard?.SetSelect(false);
+                    SelectReset();
                     
                     _targetCollider = other;
                     TargetCard = other.GetComponent<CardAble>();
                     TargetCard.SetSelect(true);
                 }
+                else if (other.CompareTag("CardSlot") && CardType == CardType.Item)
+                {
+                    SelectReset();
+                    
+                    _targetCollider = other;
+                    TargetSlot = other.GetComponent<CardSlot>();
+                    TargetSlot.SetSelect(true);
+                }
             }
         }
 
+        private void SelectReset()
+        {
+            TargetCard?.SetSelect(false);
+            TargetSlot?.SetSelect(false);
+        }
+        
         private void OnTriggerExit2D(Collider2D other)
         {
             if (IsFront && IsDrag)
@@ -91,9 +104,10 @@ namespace AllObject
 
         private void ClearTarget()
         {
-            TargetCard?.SetSelect(false);
+            SelectReset();
             _targetCollider = null;
             TargetCard = null;
+            TargetSlot = null;
         }
         
         public void OnDrag(PointerEventData eventData)
@@ -132,6 +146,14 @@ namespace AllObject
                 _isCanClick = true;
             
             ClearTarget();
+        }
+
+        protected void KeepCard(CardSlot cardSlot)
+        {
+            StageManager.Instance.KeepCard(this);
+            
+            _parentTransform = cardSlot.transform;
+            _startPosition = Vector3.zero;
         }
 
         public virtual bool UsedSkill(List<Skill> skillList)
