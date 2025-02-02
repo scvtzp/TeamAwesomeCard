@@ -10,7 +10,7 @@ namespace Editor
     public static class PrefabAnimationAutoPlay
     {
         private static Object selectedObject;
-        private static float frame;
+        private static List<float> frame = new List<float>();
         private static List<Animation> _animation = new List<Animation>();
         
         static PrefabAnimationAutoPlay()
@@ -22,6 +22,7 @@ namespace Editor
         {
             selectedObject = stage.prefabContentsRoot;
             _animation.Clear();
+            frame.Clear();
             
             Animation[] animations = stage.prefabContentsRoot.GetComponentsInChildren<Animation>(true);
             if (animations.Length > 0)
@@ -31,6 +32,7 @@ namespace Editor
                     foreach (var animation in animations)
                     {
                         _animation.Add(animation);
+                        frame.Add(0);
                         animation.Play();
                         Debug.Log(animation.clip.name);
                     }
@@ -45,15 +47,19 @@ namespace Editor
             if (Selection.activeObject == null)
                 return;
 
-            foreach (var ani in _animation)
+            var deltaTime = Time.deltaTime;
+            
+            for (var i = 0; i < _animation.Count; i++)
             {
-                frame += Time.deltaTime * ani.clip.frameRate;
+                var ani = _animation[i];
+                
+                frame[i] += deltaTime * ani.clip.frameRate;
 
-                if (frame > ani.clip.frameRate)
-                    frame = 0;
-                
-                float time = (frame / ani.clip.frameRate); // 프레임 번호를 초로 변환
-                
+                if (frame[i] > ani.clip.frameRate)
+                    frame[i] = 0;
+
+                float time = (frame[i] / ani.clip.frameRate); // 프레임 번호를 초로 변환
+
                 ani[ani.clip.name].time = time;
                 ani.Sample();
             }
