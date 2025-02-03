@@ -71,6 +71,8 @@ namespace AllObject
                     SelectReset();
                     
                     _targetCollider = other;
+                    TargetSlot = null;
+                    
                     TargetCard = other.GetComponent<CardAble>();
                     TargetCard.SetSelect(true);
                 }
@@ -79,6 +81,8 @@ namespace AllObject
                     SelectReset();
                     
                     _targetCollider = other;
+                    TargetCard = null;
+                    
                     TargetSlot = other.GetComponent<CardSlot>();
                     TargetSlot.SetSelect(true);
                 }
