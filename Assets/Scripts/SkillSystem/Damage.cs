@@ -10,7 +10,7 @@ namespace SkillSystem
     {
         public Damage() { }
         public Damage(int[] value) : base(value) { }
-        public Damage(TargetType targetType, params int[] value) : base(targetType, value) { }
+        public Damage(TargetType targetTypeType, params int[] value) : base(targetTypeType, value) { }
         
         public override void StartSkill(IStat target)
         {
@@ -19,7 +19,7 @@ namespace SkillSystem
         
         public override SkillSystem.Skill Clone()
         {
-            return new Damage(Target, Values);
+            return new Damage(TargetType, Values);
         }
     }
 }

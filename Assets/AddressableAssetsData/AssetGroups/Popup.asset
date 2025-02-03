@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Popup
+  m_EditorClassIdentifier: 
+  m_GroupName: Popup
+  m_GUID: 0823e64c6bdb3654fbb2a60e05e7d021
+  m_SerializeEntries:
+  - m_GUID: 713483c84fab0994da5309c5f9e438f3
+    m_Address: Assets/Prefabs/Popup/StageRewardView.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b86bc683aefa6b3479c807b99b632057
+    m_Address: Assets/Prefabs/Popup/StageChangeView.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: bce7e3bbbf5d8c64c811c1a21e088a23, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 5df8eb79047d0424f948d3c1a59b4448, type: 2}
+    - {fileID: 11400000, guid: 85166c19e5bb3af44ba14020a2d09c3f, type: 2}

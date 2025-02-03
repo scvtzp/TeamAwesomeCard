@@ -5,6 +5,7 @@ using AllObject.Entity;
 using AllObject.Item;
 using DefaultNamespace;
 using Manager.Generics;
+using UI.Popup.StageReward;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -28,10 +29,11 @@ namespace Manager
             SetStage();
         }
 
+        /// <summary>
+        /// 스테이지 변경 시 호출
+        /// </summary>
         public void SetStage()
         {
-            //todo: 스테이지 데이터 임시로 넣음.
-
             //테스트용 초기화 코드.
             for (int i = 0; i < cardListParents.Count; i++)
             {
@@ -127,7 +129,7 @@ namespace Manager
 
             //테스트용. 원래는 이동 카드 먹어야 이동함.
             if (cardList_1.All(subList => subList.Count == 0))
-                SetStage();
+                ChangeStage();
 
             OpenLastCard();
         }
@@ -149,9 +151,14 @@ namespace Manager
 
             //테스트용. 원래는 이동 카드 먹어야 이동함.
             if (cardList_1.All(subList => subList.Count == 0))
-                SetStage();
+                ChangeStage();
 
             OpenLastCard();
+        }
+
+        private void ChangeStage()
+        {
+            PopupManager.Instance.ShowView<StageRewardView>();
         }
     }
 }

@@ -4,31 +4,34 @@ namespace Manager.Generics
 {
     public class MonoSingleton<T> : MonoBehaviour where T : Component
     {
-        private static T instance;
+        private static T _instance;
 
+        protected virtual bool DontDestroy => true;
+        
         public static T Instance
         {
             get
             {
-                if (instance == null)
+                if (_instance == null)
                 {
                     GameObject gameObject = new GameObject(typeof(T).Name);
-                    instance = gameObject.AddComponent<T>();
+                    _instance = gameObject.AddComponent<T>();
                 }
 
-                return instance;
+                return _instance;
             }
         }
 
         public virtual void Awake()
         {
-            DontDestroyOnLoad(gameObject);
+            if (DontDestroy)
+                DontDestroyOnLoad(gameObject);
 
-            if (instance == null)
-                instance = this as T;
+            if (_instance == null)
+                _instance = this as T;
             else
             {
-                if (instance != this)
+                if (_instance != this)
                     Destroy(gameObject);
             }
         }
