@@ -10,7 +10,7 @@ namespace AllObject.Item
         //테스트용.
         public ItemModel()
         {
-            SkillList.Add(new Damage(new int[] {6}));
+            SkillList.Add(new Damage(TargetType.Select, TriggerType.SkillStart, new int[] {6}));
         }
 
         public string id { get; set; }

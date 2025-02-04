@@ -1,6 +1,7 @@
 using System;
 using AllObject;
 using DefaultNamespace;
+using Manager;
 
 namespace SkillSystem
 {
@@ -44,13 +45,20 @@ namespace SkillSystem
             for (var i = 0; i < value.Length; i++)
                 Values[i] = value[i];
         }
-        public Skill(TargetType targetTypeType, params int[] value) : this(value)
+        public Skill(TargetType targetTypeType, TriggerType triggerType, params int[] value) : this(value)
         {
             TargetType = targetTypeType;
+            TriggerType = triggerType;
         }
 
-        public abstract void StartSkill(IStat target);
-        public void StartSkill() => StartSkill(Target);
+        protected abstract void StartSkill(IStat selectTarget);
+
+        public virtual void AddTriggerAction(IStat target)
+        {
+            // 패시브 추가랑 이번 한번만 쓸거 추가 따로 넣어줘야함.
+            TriggerManager.Instance.AddTriggerAction(TriggerType, StartSkill, target);
+        }
+        
         public abstract Skill Clone();
         public int[] GetValues() => Values;
     }

@@ -12,16 +12,16 @@ namespace SkillSystem
     {
         public Heal() { }
         public Heal(int[] value) : base(value) { }
-        public Heal(TargetType targetTypeType, params int[] value) : base(targetTypeType, value) { }
-        
-        public override void StartSkill(IStat target)
+        public Heal(TargetType targetTypeType, TriggerType triggerType, params int[] value) : base(targetTypeType, triggerType, value) { }
+
+        protected override void StartSkill(IStat selectTarget)
         {
-            target.ChangeHp(Values[0]);
+            selectTarget.ChangeHp(Values[0]);
         }
-        
+
         public override SkillSystem.Skill Clone()
         {
-            return new Heal(TargetType, Values);
+            return new Heal(TargetType, TriggerType, Values);
         }
     }
 }

@@ -1,5 +1,6 @@
 using AllObject;
 using DefaultNamespace;
+using Manager;
 
 namespace SkillSystem
 {
@@ -10,16 +11,24 @@ namespace SkillSystem
     {
         public Damage() { }
         public Damage(int[] value) : base(value) { }
-        public Damage(TargetType targetTypeType, params int[] value) : base(targetTypeType, value) { }
-        
-        public override void StartSkill(IStat target)
+        public Damage(TargetType targetTypeType, TriggerType triggerType, params int[] value) : base(targetTypeType, triggerType, value) { }
+
+        protected override void StartSkill(IStat selectTarget)
         {
-            target.ChangeHp(-Values[0]);
+            foreach (var target in TargetManager.Instance.GetTarget(TargetType, selectTarget))
+            {
+                target.ChangeHp(-Values[0]);
+            }            
+        }
+
+        public override void AddTriggerAction(IStat target)
+        {
+            TriggerManager.Instance.AddTriggerAction(TriggerType, StartSkill, target);
         }
         
-        public override SkillSystem.Skill Clone()
+        public override Skill Clone()
         {
-            return new Damage(TargetType, Values);
+            return new Damage(TargetType, TriggerType, Values);
         }
     }
 }
