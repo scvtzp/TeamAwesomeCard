@@ -37,7 +37,11 @@ namespace AllObject.Item
                 return;
             }
             
-            if (CardType == CardType.Item && _presenter.NeedSelectTarget() && TargetCard != null)
+            if (CardType == CardType.Item && TargetSlot != null)
+            {
+                KeepCard(TargetSlot);
+            }
+            else if (CardType == CardType.Item && _presenter.NeedSelectTarget() && TargetCard != null)
             {
                 if (_presenter.UsedCard(TargetCard))
                     StageManager.Instance.DeathAction(_presenter);
@@ -46,12 +50,6 @@ namespace AllObject.Item
             {
                 _presenter.UsedCard();
                 StageManager.Instance.DeathAction(_presenter);
-            }
-            
-            
-            else if (CardType == CardType.Item && TargetSlot != null)
-            {
-                KeepCard(TargetSlot);
             }
             
             base.OnPointerUp(eventData);
