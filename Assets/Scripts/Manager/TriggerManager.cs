@@ -35,6 +35,10 @@ namespace Manager
 
         public void ExecuteTrigger(TriggerType triggerType)
         {
+            // 해당 스킬 사용이 끝난거면 일단 일회용 스킬들 모두 치우는거부터.
+            if (triggerType == TriggerType.SkillEnd)
+                RemoveTemporaryTriggerAction();
+            
             if (!_triggerActionDictionary.TryGetValue(triggerType, out var actions)) 
                 return;
             
@@ -44,6 +48,19 @@ namespace Manager
                 skillData.InvokeLimit--;
                 if(skillData.InvokeLimit <= 0)
                     actions.Remove(skillData);
+            }
+        }
+
+        private void RemoveTemporaryTriggerAction()
+        {
+            // 일회용 스킬들은 스킬 제한이 시작부터 -1으로 들어가있다.
+            foreach (var pair in _triggerActionDictionary)
+            {
+                foreach (var skillData in pair.Value.ToList())
+                {
+                    if(skillData.InvokeLimit <= -1)
+                        pair.Value.Remove(skillData);
+                }
             }
         }
     }

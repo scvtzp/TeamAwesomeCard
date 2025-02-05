@@ -21,6 +21,7 @@ namespace SkillSystem
     public enum TriggerType
     {
         SkillStart,
+        SkillEnd,
         LeftHp,
     }
     
@@ -57,7 +58,7 @@ namespace SkillSystem
         public virtual void AddTriggerAction(IStat target)
         {
             // 패시브 추가랑 이번 한번만 쓸거 추가 따로 넣어줘야함.
-            TriggerManager.Instance.AddTriggerAction(TriggerType, StartSkill, target, 1);
+            TriggerManager.Instance.AddTriggerAction(TriggerType, StartSkill, target, 0);
         }
         
         public abstract Skill Clone();
