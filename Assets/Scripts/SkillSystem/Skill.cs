@@ -12,9 +12,10 @@ namespace SkillSystem
         Me = 1<<0, //본인
         Ally = 1<<1, //아군
         Enemy = 1<<2, //적군
+        All = 1<<3, //적군
         
-        Summoner = 1<<3, //소환된 잡몹
-        Select = 1<<4, //내가 따로 선택한 단일 개체.
+        Summoner = 1<<4, //소환된 잡몹
+        Select = 1<<5, //내가 따로 선택한 단일 개체.
     }
     
     public enum TriggerType
@@ -37,7 +38,7 @@ namespace SkillSystem
         protected TriggerType TriggerType = TriggerType.SkillStart;
         protected int TriggerValue = 0;
         
-        public bool NeedSelectTarget => TargetType == TargetType.None;
+        public bool NeedSelectTarget => TargetType.HasFlag(TargetType.Select);
         
         public Skill(params int[] value)
         {
@@ -56,7 +57,7 @@ namespace SkillSystem
         public virtual void AddTriggerAction(IStat target)
         {
             // 패시브 추가랑 이번 한번만 쓸거 추가 따로 넣어줘야함.
-            TriggerManager.Instance.AddTriggerAction(TriggerType, StartSkill, target);
+            TriggerManager.Instance.AddTriggerAction(TriggerType, StartSkill, target, 1);
         }
         
         public abstract Skill Clone();

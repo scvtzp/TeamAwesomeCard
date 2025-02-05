@@ -37,11 +37,18 @@ namespace AllObject.Item
                 return;
             }
             
-            if (CardType == CardType.Item && TargetCard != null)
+            if (CardType == CardType.Item && _presenter.NeedSelectTarget() && TargetCard != null)
             {
                 if (_presenter.UsedCard(TargetCard))
                     StageManager.Instance.DeathAction(_presenter);
             }
+            else if (CardType == CardType.Item && !_presenter.NeedSelectTarget() && TargetCard == null)
+            {
+                _presenter.UsedCard();
+                StageManager.Instance.DeathAction(_presenter);
+            }
+            
+            
             else if (CardType == CardType.Item && TargetSlot != null)
             {
                 KeepCard(TargetSlot);
@@ -52,7 +59,7 @@ namespace AllObject.Item
         
         public override void UpdateData(string id)
         {
-            itemImage.sprite = SpriteManager.Instance.GetSprite(id);
+            //itemImage.sprite = SpriteManager.Instance.GetSprite(id);
             itemName.SetText(id);
         }
     }

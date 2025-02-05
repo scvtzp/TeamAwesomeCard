@@ -46,6 +46,15 @@ namespace Manager
             TriggerManager.Instance.ExecuteTrigger(TriggerType.SkillStart);
         }
 
+        /// <summary>
+        /// 타겟이 없는 스킬
+        /// </summary>
+        /// <param name="skillList"></param>
+        public void UsedSkill(List<Skill> skillList)
+        {
+            UsedSkill(skillList, null);
+        }
+
         public EntityModel GetPlayer() => _playerModel;
     }
 }

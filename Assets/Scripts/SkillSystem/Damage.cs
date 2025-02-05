@@ -23,7 +23,7 @@ namespace SkillSystem
 
         public override void AddTriggerAction(IStat target)
         {
-            TriggerManager.Instance.AddTriggerAction(TriggerType, StartSkill, target);
+            TriggerManager.Instance.AddTriggerAction(TriggerType, StartSkill, target, 1);
         }
         
         public override Skill Clone()

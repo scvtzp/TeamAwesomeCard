@@ -63,7 +63,12 @@ namespace Manager
                     }
                     else
                     {
-                        var model = new ItemModel();
+                        ItemModel model;
+                        if (Random.Range(1, 3) != 2)
+                            model = new ItemModel();
+                        else
+                            model = new ItemModel(1); //힐 생성.
+                        
                         var view = Instantiate(ItemViewPrefab, cardListParents[i]);
                         var presenter = new ItemPresenter(model, view);
                         

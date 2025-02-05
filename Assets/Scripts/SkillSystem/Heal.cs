@@ -1,5 +1,6 @@
 using AllObject;
 using DefaultNamespace;
+using Manager;
 using SkillSystem;
 
 namespace SkillSystem
@@ -16,7 +17,10 @@ namespace SkillSystem
 
         protected override void StartSkill(IStat selectTarget)
         {
-            selectTarget.ChangeHp(Values[0]);
+            foreach (var target in TargetManager.Instance.GetTarget(TargetType, selectTarget))
+            {
+                target.ChangeHp(Values[0]);
+            }
         }
 
         public override SkillSystem.Skill Clone()
