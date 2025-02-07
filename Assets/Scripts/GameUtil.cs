@@ -17,4 +17,9 @@ namespace DefaultNamespace
             return dictionary.ElementAt(index).Value;
         }
     }
+    
+    public static class LocalizeTable
+    {
+        public const string InGameObject = "InGameObject";
+    }
 }

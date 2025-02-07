@@ -3,24 +3,28 @@ using Manager;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Localization.Components;
 using UnityEngine.UI;
 
 namespace AllObject.Item
 {
     public class ItemView : CardAble
     {
-        [SerializeField] private TextMeshProUGUI itemName;
+        [SerializeField] private LocalizeStringEvent itemName;
+        [SerializeField] private LocalizeStringEvent itemDesc;
         [SerializeField] private Image itemImage;
         
         [SerializeField] private GameObject nameObject;
-        [SerializeField] private TextMeshProUGUI itemDesc;
 
         private ItemPresenter _presenter;
+        private string id;
         
-        public void Init(ItemPresenter presenter)
+        public void Init(ItemPresenter presenter, string itemId)
         {
             CardType = CardType.Item;
             _presenter = presenter;
+            id = itemId;
+            UpdateData(id);
         }
         
         public override void SetCardFace(bool isFront = true)
@@ -57,8 +61,9 @@ namespace AllObject.Item
         
         public override void UpdateData(string id)
         {
-            //itemImage.sprite = SpriteManager.Instance.GetSprite(id);
-            itemName.SetText(id);
+            itemImage.sprite = SpriteManager.Instance.GetSprite(id);
+            itemName.StringReference.SetReference(LocalizeTable.InGameObject, id);
+            itemDesc.StringReference.SetReference(LocalizeTable.InGameObject, $"{id}_Desc");  
         }
     }
 }

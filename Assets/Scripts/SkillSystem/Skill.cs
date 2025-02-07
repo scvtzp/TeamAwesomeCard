@@ -1,6 +1,5 @@
 using System;
 using AllObject;
-using DefaultNamespace;
 using Manager;
 
 namespace SkillSystem

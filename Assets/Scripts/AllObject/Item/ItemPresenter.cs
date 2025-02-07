@@ -16,14 +16,7 @@ namespace AllObject.Item
         {
             _model = model;
             _view = view;
-            _view.Init(this);
-            
-            //테스트용.
-            if (model.SkillList[0] is Heal skill)
-            {
-                _view.UpdateData("회복 포션");
-            }
-                
+            _view.Init(this, _model.id);
         }
         
         public void Death()
