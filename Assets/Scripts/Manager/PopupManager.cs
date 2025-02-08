@@ -23,6 +23,11 @@ namespace Manager
             await ShowView(viewName);
         }
 
+        public void ShowViewVoid(string viewName)
+        {
+            ShowView(viewName).Forget(); // UniTask 실행 후 예외 무시
+        }
+        
         private async UniTask ShowView(string viewName)
         {
             if (_popupDictionary.TryGetValue(viewName, out PopupBase view))

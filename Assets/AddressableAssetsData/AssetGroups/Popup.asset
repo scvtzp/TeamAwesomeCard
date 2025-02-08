@@ -15,13 +15,8 @@ MonoBehaviour:
   m_GroupName: Popup
   m_GUID: 0823e64c6bdb3654fbb2a60e05e7d021
   m_SerializeEntries:
-  - m_GUID: 713483c84fab0994da5309c5f9e438f3
-    m_Address: Assets/Prefabs/Popup/StageRewardView.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b86bc683aefa6b3479c807b99b632057
-    m_Address: Assets/Prefabs/Popup/StageChangeView.prefab
+  - m_GUID: a2ac335e92c7add4c8f04fb404ac978d
+    m_Address: Assets/Prefabs/Popup
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
