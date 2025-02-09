@@ -1,0 +1,16 @@
+ID,SkillName(참고용),Desc(참고용),Target,SkillType,SkillValue,Trigger,TriggerValue,Duration
+Item_0,검,대상에게 데미지 6으로 공격,Select|Enemy,Damage,6,,,
+Item_1,회복 포션,내 영웅의 생명력 5 회복,Me,Heal,5,,,
+item_2,테스트용 긴거,"대상에게 데미지 3으로 공격
+모든 적에게 데미지 3으로 공격
+내 영웅의 생명력 3 회복",Select|Enemy,Damage,3,,,
+,,,AllEnemy,Damage,3,,,
+,,,Me,Heal,3,,,
+item_3,트리거 테스트용,"피해를 4 줍니다.
+만약 대상의 생명력이 5 이하라면, 
+피해를 3 추가로 입힙니다.",Select|Enemy,Damage,4,,,
+,,,Select|Enemy,Damage,3,LowerTargetHP,5,
+item_4,지속시간 테스트용,"피해를 4 줍니다.
+턴 시작 시, 해당 적에게 피해를 3 줍니다.
+3턴간 지속됩니다. (턴종료=평타)",Select|Enemy,Damage,4,,,
+,,,Select|Enemy,Damage,3,TurnCycle,1,3
