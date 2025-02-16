@@ -5,14 +5,14 @@ using UnityEngine;
 
 namespace DefaultNamespace
 {
-    public class EntityModel : IStat, IHasID
+    public class EntityModel : Model, IStat, IHasID
     {
         public EntityModel()
         {
-            
+            ModelType = ModelType.Entity;
         }
         
-        public EntityModel(EntityModel model)
+        public EntityModel(EntityModel model) : this()
         {
             this.id = model.id;
             
@@ -22,7 +22,7 @@ namespace DefaultNamespace
             this.def = new ReactiveProperty<int>(model.def.Value); 
         }
         
-        public EntityModel(string id, string hp, string atk, string def)
+        public EntityModel(string id, string hp, string atk, string def) : this()
         {
             int hpValue = int.Parse(hp);
             int atkValue = int.Parse(atk);

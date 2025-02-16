@@ -39,7 +39,8 @@ namespace AllObject.Item
         {
             BattleManager.Instance.UsedSkill(_model.SkillList);
         }
-
-        public bool NeedSelectTarget() => _model.SkillList[0].NeedSelectTarget;
+        
+        /// 이 아이템이 대상 지정을 필요로 하는가? (0번이 주 스킬이라 이게 타겟형이 아니면 타겟형 아님)
+        public bool NeedSelectTarget() => _model.SkillList[0].NeedSelectTarget();
     }
 }

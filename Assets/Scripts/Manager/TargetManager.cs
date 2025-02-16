@@ -12,13 +12,19 @@ namespace Manager
         {
             var returnList = new List<IStat>();
 
-            if (targetType.HasFlag(TargetType.Me))
+            if (targetType.HasFlag(TargetType.Player))
                 returnList.Add(BattleManager.Instance.GetPlayer());
             
             if(targetType.HasFlag(TargetType.Select) && selectTarget != null)
                 returnList.Add(selectTarget);
             else if(targetType.HasFlag(TargetType.Select) && selectTarget == null)
                 Debug.Log("Select Target null");
+
+            if (targetType.HasFlag(TargetType.All))
+            {
+                foreach (var model in StageManager.Instance.GetAllEntity())
+                    returnList.Add(model);
+            }
             
             return returnList;
         }

@@ -15,6 +15,8 @@ namespace Manager
         private EntityModel _playerModel;
         private EntityPresenter _turnOwnerPresenter;
 
+        private List<EntityModel> _allEntity;
+        
         public void Start()
         {
             _playerModel = new EntityModel();

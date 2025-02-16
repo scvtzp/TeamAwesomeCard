@@ -21,7 +21,7 @@ namespace Manager
         [SerializeField] ItemView ItemViewPrefab;
         
         [SerializeField] List<Transform> cardListParents;
-        public List<List<(CardAble, ICardPresenter)>> cardList_1 { get; private set; }
+        public List<List<(Model, CardAble, ICardPresenter)>> CardList { get; private set; }
 
         private async void Start()
         {
@@ -42,14 +42,14 @@ namespace Manager
             }
             
             // 초기화
-            cardList_1 = new List<List<(CardAble, ICardPresenter)>>();
+            CardList = new List<List<(Model, CardAble, ICardPresenter)>>();
             for (int i = 0; i < 5; i++)
             {
-                cardList_1.Add(new List<(CardAble, ICardPresenter)>());
+                CardList.Add(new List<(Model, CardAble, ICardPresenter)>());
             }
             
             // 라인별로 무작위 갯수만큼 카드 생성.
-            for (int i = 0; i < cardList_1.Count; i++)
+            for (int i = 0; i < CardList.Count; i++)
             {
                 for (int j = 0; j < Random.Range(1, 5); j++)
                 {
@@ -59,30 +59,15 @@ namespace Manager
                         var view = Instantiate(entityViewPrefab, cardListParents[i]);
                         var presenter = new EntityPresenter(model, view);
                         
-                        cardList_1[i].Add((view, presenter));
+                        CardList[i].Add((model, view, presenter));
                     }
                     else
                     {
-                        ItemModel model;
-                        if (Random.Range(1, 3) != 2)
-                        {
-                            model = new ItemModel
-                            {
-                                id = "item_0"
-                            };
-                        }
-                        else
-                        {   //힐 생성.
-                            model = new ItemModel(1)
-                            {
-                                id = "item_1"
-                            }; 
-                        }
-                        
+                        ItemModel model = DataSettingManager.Instance.ItemData.GetRandomValue();
                         var view = Instantiate(ItemViewPrefab, cardListParents[i]);
                         var presenter = new ItemPresenter(model, view);
                         
-                        cardList_1[i].Add((view, presenter));
+                        CardList[i].Add((model, view, presenter));
                     }
                 }
             }
@@ -94,7 +79,7 @@ namespace Manager
 
         private void CloseAllCard()
         {
-            foreach (var list in cardList_1)
+            foreach (var list in CardList)
                 foreach (var card in list)
                     card.Item2.SetCardFace(false);
         }
@@ -104,24 +89,24 @@ namespace Manager
         /// </summary>
         private void SortCardPos()
         {
-            for (var index = 0; index < cardList_1.Count; index++)
+            for (var index = 0; index < CardList.Count; index++)
             {
-                for (int i = cardList_1[index].Count - 1; i >= 0; i--)
+                for (int i = CardList[index].Count - 1; i >= 0; i--)
                 {
-                    var pos = (i - (cardList_1[index].Count - 1)) * -30f;
-                    cardList_1[index][i].Item1.SetPos(new Vector3(0, pos, 0), cardListParents[index]);
+                    var pos = (i - (CardList[index].Count - 1)) * -30f;
+                    CardList[index][i].Item2.SetPos(new Vector3(0, pos, 0), cardListParents[index]);
                 }
             }
         }
         
-        // 특정 카드가 죽으면 아래 카드 뒤집어준다.
+        /// 특정 카드가 죽으면 아래 카드 뒤집어준다.
         private void OpenLastCard()
         {
             //맨 앞 카드 뒤집어줌
-            for (int i = 0; i < cardList_1.Count; i++)
+            for (int i = 0; i < CardList.Count; i++)
             {
-                if(cardList_1[i].Count > 0)
-                    cardList_1[i][^1].Item2.SetCardFace(true);
+                if(CardList[i].Count > 0)
+                    CardList[i][^1].Item3.SetCardFace(true);
             }
         }
 
@@ -129,7 +114,7 @@ namespace Manager
         {
             presenter.Death();
             
-            foreach (var subList in cardList_1)
+            foreach (var subList in CardList)
             {
                 for (var index = 0; index < subList.Count; index++)
                 {
@@ -143,7 +128,7 @@ namespace Manager
             }
 
             //테스트용. 원래는 이동 카드 먹어야 이동함.
-            if (cardList_1.All(subList => subList.Count == 0))
+            if (CardList.All(subList => subList.Count == 0))
                 ChangeStage();
 
             OpenLastCard();
@@ -151,12 +136,12 @@ namespace Manager
 
         public void KeepCard(CardAble card)
         {
-            foreach (var subList in cardList_1)
+            foreach (var subList in CardList)
             {
                 for (var index = 0; index < subList.Count; index++)
                 {
                     var tuple = subList[index];
-                    if (tuple.Item1 == card)
+                    if (tuple.Item2 == card)
                     {
                         if (subList.Remove(tuple))
                             break;
@@ -165,7 +150,7 @@ namespace Manager
             }
 
             //테스트용. 원래는 이동 카드 먹어야 이동함.
-            if (cardList_1.All(subList => subList.Count == 0))
+            if (CardList.All(subList => subList.Count == 0))
                 ChangeStage();
 
             OpenLastCard();
@@ -174,6 +159,19 @@ namespace Manager
         private void ChangeStage()
         {
             PopupManager.Instance.ShowView<StageRewardView>();
+        }
+
+        public List<IStat> GetAllEntity()
+        {
+            List<IStat> list = new List<IStat>();
+            
+            foreach (var variable in CardList)
+            {
+                if(variable.Count > 0 && variable[0].Item1.ModelType == ModelType.Entity)
+                    list.Add(variable[0].Item1 as IStat);
+            }
+
+            return list;
         }
     }
 }

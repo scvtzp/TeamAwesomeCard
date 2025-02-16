@@ -16,6 +16,8 @@ namespace DefaultNamespace
             int index = Random.Next(dictionary.Count);
             return dictionary.ElementAt(index).Value;
         }
+        
+        public static int ToInt(this string str) => int.Parse(str);
     }
     
     public static class LocalizeTable

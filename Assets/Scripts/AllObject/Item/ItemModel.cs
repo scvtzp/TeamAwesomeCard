@@ -1,24 +1,16 @@
 using System.Collections.Generic;
 using SkillSystem;
-
 namespace AllObject.Item
 {
-    public class ItemModel : IHasID
+    public class ItemModel : Model, IHasID
     {
+        public string id { get; set; } //id를 직접 들고있는게 맞나?
         public List<Skill> SkillList = new List<Skill>();
 
-        //테스트용.
-        public ItemModel()
+        public ItemModel(string id)
         {
-            SkillList.Add(new Damage(TargetType.Select, TriggerType.SkillStart, new int[] {6}));
+            this.id = id;
+            ModelType = ModelType.Item;
         }
-        
-        //테스트용.
-        public ItemModel(int a)
-        {
-            SkillList.Add(new Heal(TargetType.Me, TriggerType.SkillStart, new int[] {5}));
-        } 
-
-        public string id { get; set; }
     }
 }

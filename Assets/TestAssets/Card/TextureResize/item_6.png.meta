@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: af5462ee9f4524c4cb1c2718c49ccd3b
+guid: 7bf4449a99d994249bbb42a05fe6e9c2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3293926529828943260
-    second: Card_Item_Knife_01_R_0
+      213: -3714598657792901948
+    second: item_6_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: item_0
+      name: item_6_0
       rect:
         serializedVersion: 2
         x: 0
@@ -121,15 +121,15 @@ TextureImporter:
         width: 200
         height: 300
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c9570b61ab066bd20800000000000000
-      internalID: 3293926529828943260
+      spriteID: 4cc7c179338137cc0800000000000000
+      internalID: -3714598657792901948
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 458a04cddbe0bdf4087ca66ecbf8be04
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      item_0: 3293926529828943260
+      item_6_0: -3714598657792901948
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
