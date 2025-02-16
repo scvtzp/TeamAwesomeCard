@@ -81,7 +81,7 @@ namespace Manager
         {
             foreach (var list in CardList)
                 foreach (var card in list)
-                    card.Item2.SetCardFace(false);
+                    card.Item3.SetCardFace(false);
         }
 
         /// <summary>
@@ -119,7 +119,7 @@ namespace Manager
                 for (var index = 0; index < subList.Count; index++)
                 {
                     var tuple = subList[index];
-                    if (tuple.Item2 == presenter)
+                    if (tuple.Item3 == presenter)
                     {
                         if (subList.Remove(tuple))
                             break;
@@ -160,15 +160,18 @@ namespace Manager
         {
             PopupManager.Instance.ShowView<StageRewardView>();
         }
-
-        public List<IStat> GetAllEntity()
+        
+        /// 맨 앞줄의 리스트 반환. 해당 줄이 비어있거나, 몬스터가 아니면 null로 반환.
+        public List<IStat> GetAllFirstEntity()
         {
             List<IStat> list = new List<IStat>();
             
             foreach (var variable in CardList)
             {
-                if(variable.Count > 0 && variable[0].Item1.ModelType == ModelType.Entity)
-                    list.Add(variable[0].Item1 as IStat);
+                if (variable.Count > 0 && variable[^1].Item1.ModelType == ModelType.Entity)
+                    list.Add(variable[^1].Item1 as IStat);
+                else
+                    list.Add(null);
             }
 
             return list;

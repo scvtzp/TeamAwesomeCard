@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using AllObject;
+using DefaultNamespace;
 using Manager;
 
 namespace SkillSystem
@@ -55,23 +56,11 @@ namespace SkillSystem
         protected Dictionary<SkillCommonValue, string> SkillValues;
         
         protected TargetType TargetType = TargetType.None;
+        public bool NeedSelectTarget() => TargetType.NeedSelectTarget();
         protected IStat Target;
         
         protected TriggerType TriggerType = TriggerType.None;
-
-        public bool NeedSelectTarget()
-        {
-            if(TargetType.HasFlag(TargetType.Select))
-                return true;
-            if(TargetType.HasFlag(TargetType.Enemy))
-                return true;
-            if(TargetType.HasFlag(TargetType.SelectRight))
-                return true;
-            if(TargetType.HasFlag(TargetType.SelectLeft))
-                return true;
-            return false;
-        }
-
+        
         public Skill()
         {
             

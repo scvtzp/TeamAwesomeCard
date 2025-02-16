@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using SkillSystem;
 
 namespace DefaultNamespace
 {
@@ -18,6 +19,15 @@ namespace DefaultNamespace
         }
         
         public static int ToInt(this string str) => int.Parse(str);
+
+        public static bool NeedSelectTarget(this TargetType targetType)
+        {
+            if(targetType.HasFlag(TargetType.Select))
+                return true;
+            if(targetType.HasFlag(TargetType.Enemy))
+                return true;
+            return false;
+        }
     }
     
     public static class LocalizeTable

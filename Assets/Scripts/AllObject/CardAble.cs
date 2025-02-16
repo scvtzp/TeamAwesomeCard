@@ -38,7 +38,7 @@ namespace AllObject
         private Transform _parentTransform;
         private bool _isCanClick = false;
         
-        
+        /// 카드 앞뒷면 상태를 정의
         public virtual void SetCardFace(bool isFront = true)
         {
             if(backObject != null)
