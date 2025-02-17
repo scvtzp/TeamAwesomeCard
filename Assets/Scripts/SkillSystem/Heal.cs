@@ -2,8 +2,6 @@ using System.Collections.Generic;
 using AllObject;
 using DefaultNamespace;
 using Manager;
-using SkillSystem;
-using UnityEditor.Localization.Plugins.XLIFF.V20;
 
 namespace SkillSystem
 {
@@ -13,7 +11,6 @@ namespace SkillSystem
     /// </summary>
     public class Heal : Skill
     {
-        public Heal(int[] value) : base() { }
         public Heal(TargetType targetTypeType, TriggerType triggerType, params int[] value) : base(targetTypeType, triggerType, value) { }
         public Heal(TargetType targetType, TriggerType triggerType, Dictionary<string, string> dataCache) : base(targetType, triggerType, dataCache) { }
 

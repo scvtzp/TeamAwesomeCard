@@ -10,7 +10,6 @@ namespace SkillSystem
     /// </summary>
     public class Damage : Skill
     {
-        public Damage() { }
         public Damage(TargetType targetTypeType, TriggerType triggerType, params int[] value) : base(targetTypeType, triggerType, value) { }
         public Damage(TargetType targetType, TriggerType triggerType, Dictionary<string, string> dataCache) : base(targetType, triggerType, dataCache) { }
         
