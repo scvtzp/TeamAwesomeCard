@@ -53,7 +53,7 @@ namespace SkillSystem
         // 해당 부분에서 본체에도 피해 2줄때는 고정 타겟 있어야 해서 ISkill class로 바꾸고 그냥 타겟 같이 넣음.
         // IAutoSelect 같은거 만들어서 넣어줘야 하나 싶은데 그럼 iskill로 하나로 뭉치기 좀 힘들어서 고민필요할듯.
         // override가 아니라 무조건 만들어줘야 하는거라 인터페이스가 더 이쁘긴 한데.. 씁
-        protected Dictionary<SkillCommonValue, string> SkillValues;
+        public Dictionary<SkillCommonValue, string> SkillValues;
         
         protected TargetType TargetType = TargetType.None;
         public bool NeedSelectTarget() => TargetType.NeedSelectTarget();

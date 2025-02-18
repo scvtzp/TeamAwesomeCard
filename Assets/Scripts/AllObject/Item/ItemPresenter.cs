@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using DefaultNamespace;
 using Manager;
 using SkillSystem;
@@ -17,6 +18,21 @@ namespace AllObject.Item
             _model = model;
             _view = view;
             _view.Init(this, _model.id);
+            
+            //모델의 벨류들 다 가져와서 스마트에 넣어줌.
+            Dictionary<string, string> smartStringData = new Dictionary<string, string>();
+            for (var i = 0; i < _model.SkillList.Count; i++)
+            {
+                var skill = _model.SkillList[i];
+                Debug.Log($"키 시작");
+                foreach (var pair in skill.SkillValues)
+                {
+                    smartStringData.Add($"{pair.Key.ToString()}{i}", pair.Value);
+                    Debug.Log($"키: {pair.Key.ToString()}{i}");
+                }
+                Debug.Log($"키 종료");
+            }
+            _view.UpdateData(smartStringData);
         }
         
         public void Death()

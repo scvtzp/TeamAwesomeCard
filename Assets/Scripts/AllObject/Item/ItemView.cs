@@ -1,9 +1,11 @@
+using System.Collections.Generic;
 using DefaultNamespace;
 using Manager;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Localization.Components;
+using UnityEngine.Localization.SmartFormat.PersistentVariables;
 using UnityEngine.UI;
 
 namespace AllObject.Item
@@ -24,7 +26,6 @@ namespace AllObject.Item
             CardType = CardType.Item;
             _presenter = presenter;
             id = itemId;
-            UpdateData(id);
         }
         
         public override void SetCardFace(bool isFront = true)
@@ -58,12 +59,22 @@ namespace AllObject.Item
             
             base.OnPointerUp(eventData);
         }
-        
+
+        //아래 있는거랑 통합필요.
         public override void UpdateData(string id)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public async void UpdateData(Dictionary<string, string> smartStringData)
         {
             itemImage.sprite = SpriteManager.Instance.GetSprite(id);
             itemName.StringReference.SetReference(LocalizeTable.InGameObject, id);
-            itemDesc.StringReference.SetReference(LocalizeTable.InGameObject, $"{id}_Desc");  
+
+            var keys = await GameUtil.CheckLocalizedStringKeys(LocalizeTable.InGameObject, $"{id}_Desc");
+            foreach (var key in keys)
+                itemDesc.StringReference.Add(key, new StringVariable(){Value = smartStringData[key]});
+            itemDesc.StringReference.SetReference(LocalizeTable.InGameObject, $"{id}_Desc");
         }
     }
 }
