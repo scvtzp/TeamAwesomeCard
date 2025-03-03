@@ -20,7 +20,6 @@
 ## **주요 기능 소개**
 ![1740937282380-2f97f482-cd6b-4382-bc72-11b3780cff2a_3](https://github.com/user-attachments/assets/6b7eabec-51cc-4689-a9b1-978155d4b6a9)
 ![1740937282380-2f97f482-cd6b-4382-bc72-11b3780cff2a_4](https://github.com/user-attachments/assets/442127ab-e1c2-4e29-af73-c6128b38473a)
-[코드 링크](https://github.com/scvtzp/TeamAwesomeCard/blob/73f9c27374b52b871b445d825d6840a2b5fe0378/Assets/Scripts/Manager/TriggerManager.cs)
 ![1740937282380-2f97f482-cd6b-4382-bc72-11b3780cff2a_5](https://github.com/user-attachments/assets/2f667cb1-40a1-4b36-8048-bfa3dfaaeddc)
 ![1740937282380-2f97f482-cd6b-4382-bc72-11b3780cff2a_6](https://github.com/user-attachments/assets/a220dc3b-3823-494d-a079-66ee489dd4bc)
 ![1740937282380-2f97f482-cd6b-4382-bc72-11b3780cff2a_7](https://github.com/user-attachments/assets/7916460f-fdc6-4f8c-b4d5-7c259e6c0b62)
