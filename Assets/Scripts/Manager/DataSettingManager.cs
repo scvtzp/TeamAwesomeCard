@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using AllObject.Item;
+using Cysharp.Threading.Tasks;
 using DefaultNamespace;
 using Manager.Generics;
 using SkillSystem;
@@ -19,27 +20,30 @@ namespace Manager
         public Dictionary<string, EntityModel> EntityData = new Dictionary<string, EntityModel>();
         public Dictionary<string, ItemModel> ItemData = new Dictionary<string, ItemModel>();
         
-        private void Start()
+        private async void Start()
         {
-            LoadEntitySetting();
+            await LoadEntitySettingAsync();
             LoadItemSetting();
         }
 
-        private void LoadEntitySetting()
+        private async UniTask LoadEntitySettingAsync()
         {
-            TextAsset csvFile = Resources.Load<TextAsset>("Data/EntitySetting");
-            string[] lines = csvFile.text.Split('\n');
+            // CSV 파일을 비동기적으로 로드
+            var csvFile = await Resources.LoadAsync("Data/EntitySetting").ToUniTask();
+            TextAsset textAsset = csvFile as TextAsset;
+            
+            string[] lines = textAsset.text.Split('\n');
 
-            for (var i = 1; i < lines.Length; i++) //0번은 헤더라서 뺌.
+            for (var i = 1; i < lines.Length; i++) //0번은 헤더라서 제외.
             {
                 var line = lines[i];
                 string[] columns = line.Split(',');
 
-                var model = new EntityModel(columns[0], columns[1], columns[2],columns[3]);
-                
+                var model = new EntityModel(columns[0], columns[1], columns[2], columns[3]);
+
                 EntityData.Add(model.id, model);
             }
-            
+
             Debug.Log("몬스터 세팅 완료.");
         }
 

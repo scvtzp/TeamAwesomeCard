@@ -28,6 +28,7 @@ namespace SkillSystem
         SkillEnd,
         LowerTargetHP, //남은 HP가 수치보다 낮다면
         TurnCycle, //턴 시작 시
+        GetDamage, //피해를 입었을 때
     }
 
     public enum SkillCommonValue

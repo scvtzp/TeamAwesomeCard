@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using DefaultNamespace;
 using Manager;
 using TMPro;
@@ -66,12 +67,14 @@ namespace AllObject.Item
             throw new System.NotImplementedException();
         }
 
-        public async void UpdateData(Dictionary<string, string> smartStringData)
+        public async UniTaskVoid UpdateData(Dictionary<string, string> smartStringData)
         {
             itemImage.sprite = SpriteManager.Instance.GetSprite(id);
             itemName.StringReference.SetReference(LocalizeTable.InGameObject, id);
 
+            // SmartString의 key들을 가져옴
             var keys = await GameUtil.CheckLocalizedStringKeys(LocalizeTable.InGameObject, $"{id}_Desc");
+            // 가져온 key값들에 인자로 받은 Dictionary에서 값을 적용
             foreach (var key in keys)
                 itemDesc.StringReference.Add(key, new StringVariable(){Value = smartStringData[key]});
             itemDesc.StringReference.SetReference(LocalizeTable.InGameObject, $"{id}_Desc");

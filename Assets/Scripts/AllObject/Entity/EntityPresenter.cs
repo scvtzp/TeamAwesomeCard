@@ -13,7 +13,7 @@ namespace DefaultNamespace
     {
         private EntityModel _model;
         private EntityView _view;
-
+        
         private bool _isFront;
         
         public EntityPresenter(EntityModel model, EntityView view)

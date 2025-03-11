@@ -36,16 +36,18 @@ namespace Manager
             {
                 attacker.hp.Value -= defender.atk.Value - attacker.def.Value;
             }
+            
+            TriggerManager.Instance.ExecuteTrigger(TriggerType.TurnCycle);
         }
 
         public void UsedSkill(List<Skill> skillList, IStat defender)
         {
             foreach (var skill in skillList)
-            {
                 skill.AddTriggerAction(defender);
-            }
 
             TriggerManager.Instance.ExecuteTrigger(TriggerType.SkillStart);
+            TriggerManager.Instance.ExecuteTrigger(TriggerType.SkillEnd);
+            TriggerManager.Instance.ExecuteTrigger(TriggerType.TurnCycle);
         }
 
         /// <summary>

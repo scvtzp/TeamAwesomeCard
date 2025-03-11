@@ -17,7 +17,8 @@ namespace DefaultNamespace
             if (fillAmount < 0) fillAmount = 0;
 
             if(isAnimated)
-                await fillTransform.DOAnchorMax(new Vector2(fillAmount, 1), 0.5f).SetEase(Ease.OutQuint).ToUniTask();
+                await fillTransform.DOAnchorMax(new Vector2(fillAmount, 1), 0.5f)
+                    .SetEase(Ease.OutQuint).ToUniTask();
             else
                 fillTransform.localScale = new Vector3(fillAmount, 1, 1);
             
