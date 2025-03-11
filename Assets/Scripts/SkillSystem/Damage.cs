@@ -10,7 +10,7 @@ namespace SkillSystem
     /// </summary>
     public class Damage : Skill
     {
-        public Damage(TargetType targetTypeType, TriggerType triggerType, params int[] value) : base(targetTypeType, triggerType, value) { }
+        public Damage(TargetType targetTypeType, TriggerType triggerType, Dictionary<SkillCommonValue, string> skillValues) : base(targetTypeType, triggerType, skillValues) { }
         public Damage(TargetType targetType, TriggerType triggerType, Dictionary<string, string> dataCache) : base(targetType, triggerType, dataCache) { }
         
         protected override void StartSkill(IStat selectTarget)
@@ -23,12 +23,13 @@ namespace SkillSystem
 
         public override void AddTriggerAction(IStat target)
         {
-            TriggerManager.Instance.AddTriggerAction(TriggerType, StartSkill, target, 1);
+            var duration =  SkillValues.ContainsKey(SkillCommonValue.Duration) ?  int.Parse(SkillValues[SkillCommonValue.Duration]) : 1;
+            TriggerManager.Instance.AddTriggerAction(TriggerType, StartSkill, target, duration);
         }
         
         public override Skill Clone()
         {
-            return new Damage(TargetType, TriggerType);
+            return new Damage(TargetType, TriggerType, SkillValues);
         }
     }
 }

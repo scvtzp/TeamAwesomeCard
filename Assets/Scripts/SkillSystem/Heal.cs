@@ -11,7 +11,7 @@ namespace SkillSystem
     /// </summary>
     public class Heal : Skill
     {
-        public Heal(TargetType targetTypeType, TriggerType triggerType, params int[] value) : base(targetTypeType, triggerType, value) { }
+        public Heal(TargetType targetTypeType, TriggerType triggerType, Dictionary<SkillCommonValue, string> skillValues) : base(targetTypeType, triggerType, skillValues) { }
         public Heal(TargetType targetType, TriggerType triggerType, Dictionary<string, string> dataCache) : base(targetType, triggerType, dataCache) { }
 
         protected override void StartSkill(IStat selectTarget)
@@ -25,7 +25,7 @@ namespace SkillSystem
         public override SkillSystem.Skill Clone()
         {
             //value 삭제한 개선본으로 수정필요
-            return new Heal(TargetType, TriggerType);
+            return new Heal(TargetType, TriggerType, SkillValues);
         }
     }
 }

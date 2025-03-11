@@ -80,10 +80,13 @@ namespace SkillSystem
             }
         }
         
-        public Skill(TargetType targetTypeType, TriggerType triggerType, params int[] value) : this()
+        public Skill(TargetType targetTypeType, TriggerType triggerType, Dictionary<SkillCommonValue, string> skillValues) : this()
         {
             TargetType = targetTypeType;
             TriggerType = triggerType;
+            SkillValues = new Dictionary<SkillCommonValue, string>();
+            foreach (var pair in skillValues)
+                SkillValues.Add(pair.Key, pair.Value);
         }
 
         protected abstract void StartSkill(IStat selectTarget);
