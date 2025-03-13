@@ -9,14 +9,14 @@ namespace Manager
 {
     public class SkillData
     {
-        public SkillData(Action<IStat> action, IStat target, int invokeLimit)
+        public SkillData(Action<IStat, IStat> action, IStat target, int invokeLimit)
         {
             Action = action;
             Target = target;
             InvokeLimit = invokeLimit;
         }
         
-        public Action<IStat> Action;
+        public Action<IStat, IStat> Action;
         public IStat Target;
         public int InvokeLimit;
     }
@@ -25,7 +25,7 @@ namespace Manager
     {
         private Dictionary<TriggerType, List<SkillData>> _triggerActionDictionary = new();
         
-        public void AddTriggerAction(TriggerType triggerType, Action<IStat> action, IStat target, int invokeLimit)
+        public void AddTriggerAction(TriggerType triggerType, Action<IStat, IStat> action, IStat target, int invokeLimit)
         {
             if (!_triggerActionDictionary.ContainsKey(triggerType))
                 _triggerActionDictionary[triggerType] = new List<SkillData>(); // 리스트 초기화
@@ -33,7 +33,7 @@ namespace Manager
             _triggerActionDictionary[triggerType].Add(new SkillData(action, target, invokeLimit));
         }
 
-        public void ExecuteTrigger(TriggerType triggerType)
+        public void ExecuteTrigger(TriggerType triggerType, IStat triggerTarget = null)
         {
             // 스킬 사용이 끝나면 일단 일회용 스킬들 모두 삭제하는 것 부터.
             if (triggerType == TriggerType.SkillEnd)
@@ -44,7 +44,7 @@ namespace Manager
             
             foreach (var skillData in targetList.ToList())
             {
-                skillData.Action.Invoke(skillData.Target);
+                skillData.Action.Invoke(skillData.Target, triggerTarget);
                 skillData.InvokeLimit--;
                 if(skillData.InvokeLimit <= 0)
                     targetList.Remove(skillData);

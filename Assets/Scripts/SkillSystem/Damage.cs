@@ -13,11 +13,12 @@ namespace SkillSystem
         public Damage(TargetType targetTypeType, TriggerType triggerType, Dictionary<SkillCommonValue, string> skillValues) : base(targetTypeType, triggerType, skillValues) { }
         public Damage(TargetType targetType, TriggerType triggerType, Dictionary<string, string> dataCache) : base(targetType, triggerType, dataCache) { }
         
-        protected override void StartSkill(IStat selectTarget)
+        protected override void StartSkill(IStat selectTarget, IStat triggerTarget = null)
         {
             foreach (var target in TargetManager.Instance.GetTarget(TargetType, selectTarget))
             {
-                target.ChangeHp(-SkillValues[SkillCommonValue.Value].ToInt());
+                if(triggerTarget == null || triggerTarget == target)
+                    target.ChangeHp(-SkillValues[SkillCommonValue.Value].ToInt());
             }            
         }
 

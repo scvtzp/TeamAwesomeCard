@@ -89,7 +89,10 @@ namespace SkillSystem
                 SkillValues.Add(pair.Key, pair.Value);
         }
 
-        protected abstract void StartSkill(IStat selectTarget);
+        /// <summary>
+        /// triggerTarget은 트리거가 시작된 타겟. 상관없으면 null.
+        /// </summary>
+        protected abstract void StartSkill(IStat selectTarget, IStat triggerTarget = null);
 
         public virtual void AddTriggerAction(IStat target)
         {

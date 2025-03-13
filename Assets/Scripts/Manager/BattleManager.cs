@@ -24,9 +24,13 @@ namespace Manager
         }
 
         public void Attack(IStat defender) => Attack(_playerModel, defender);
-        public void Attack(IStat attacker, IStat defender)
+        
+        /// <summary>
+        /// 클릭을 통한 기본 공격
+        /// </summary>
+        private void Attack(IStat attacker, IStat defender)
         {
-            defender.hp.Value -= attacker.atk.Value - defender.def.Value;
+            defender.ChangeHp(-(attacker.atk.Value - defender.def.Value));
 
             if (defender.hp.Value <= 0)
             {
@@ -34,7 +38,7 @@ namespace Manager
             }
             else
             {
-                attacker.hp.Value -= defender.atk.Value - attacker.def.Value;
+                attacker.ChangeHp(-(defender.atk.Value - attacker.def.Value));
             }
             
             TriggerManager.Instance.ExecuteTrigger(TriggerType.TurnCycle);
